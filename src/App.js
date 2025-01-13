@@ -30,9 +30,12 @@ function App() {
         </div>
 
         <div className="px-[100px] text-center bg-[#152431] py-8">
-          <h1 className="text-[34px] text-white pb-4">
-            ตัวแทนจำหน่ายเครื่องเชื่อมอินเวอร์เตอร์ เครื่องเชื่อมไรล่อน
-          </h1>
+          <div className="pb-4">
+            <h1 className="text-[34px] text-white">
+              ตัวแทนจำหน่ายเครื่องเชื่อมอินเวอร์เตอร์ เครื่องเชื่อมไรล่อน
+            </h1>
+            <div className="text-[#E2B22C] h-[3px] w-[60px] text-center mx-[auto] bg-[#E2B22C]" />
+          </div>
           <div>
             <div className="text-[#E2B22C] backdrop-blur-sm bg-white/10 pt-1 pb-4 px-[20px]">
               <h1 className="text-[34px] pt-3 pb-6 ">
@@ -49,7 +52,6 @@ function App() {
               </h2>
             </div>
             <div>
-
             </div>
           </div>
         </div>
@@ -83,11 +85,12 @@ function App() {
 
           <img></img>
 
-          <div>
-            <h1 className="py-2 text-[30px]">
+          <div className="">
+            <h1 className="pt-2 text-[30px]">
               เกี่ยวกับเรา
             </h1>
-            <p>
+            <div className="text-[#E2B22C] h-[3px] w-[60px] text-center mx-[auto] bg-[#E2B22C]" />
+            <p className='pt-3'>
               บริษัท วรชาติ กรุ๊ป จำกัด ก่อตั้งมาตั้งแต่ปี 2551 โดยผู้บริหารที่มีความชำนาญงานด้านการงานเชื่อมสแตนเลส งานเชื่อมโลหะ ด้วยประสบการณ์ด้านงานเชื่อมต่างๆ จึงเล็งเห็นธุรกิจด้านเครื่องเชื่อม เครื่องตัดพลาสม่า เราจึงมีความมุ่งมั่นที่จะเป็นตัวแทนจำหน่าย Rilon เครื่องเชื่อมตัดในประเทศไทย ผลิตสินค้าให้เป็นไปตามมาตรฐานทางวิศวกรรม พร้อมที่จะพัฒนาผลิตภัณฑ์สินค้าให้มีคุณภาพอย่างต่อเนื่อง และขายสินค้าในราคายุติธรรม
             </p>
             <img></img>
