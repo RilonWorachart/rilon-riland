@@ -2,10 +2,12 @@ import React, {useRef} from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
-import RecommendProduct from '../components/RecommendProduct'
+import RecommendProductList from '../components/homepage/RecommendProductList'
 import YouTubeEmbed from '../components/YoutubeEmbed'
-import { FaFacebookF, FaGlobe, FaInstagram, FaLine, FaPhoneAlt, FaYoutube, FaBuilding, FaFax, FaMapMarkerAlt, FaShareAlt } from "react-icons/fa";
-import { FaClock } from "react-icons/fa6";
+import Contact from '../components/Contact'
+import QRcodeComponent from '../components/QRcodeComponent'
+import ItemList from '../components/homepage/ItemList'
+import { FaFacebookF, FaGlobe, FaInstagram, FaLine, FaPhoneAlt, FaYoutube, FaMapMarkerAlt} from "react-icons/fa";
 import { MdBusinessCenter, MdMail } from "react-icons/md";
 import Logo from '../images/logo.png'
 import picture1 from '../images/Y-Banding-03-01.png'
@@ -23,7 +25,12 @@ import Torch from '../images/Torch.png'
 import Rotate from '../images/Rotate.png'
 import CO2 from '../images/co2.png'
 import YellowRilon from '../images/YellowRilon.png'
-import AllProduct from '../components/ItemList'
+import Dealer from '../images/Dealer.jpg'
+import HighEfficiency from '../images/HighEfficiency.jpg'
+import WarantyService from '../images/WarantyService.jpg'
+import WeldingMC from '../images/WeldingMC.png'
+import TorchSerPana from '../images/TorchSerPana.png'
+import Robot from '../images/Robot.png'
 
 
 
@@ -65,7 +72,7 @@ function HomePage() {
                     </div>
 
                     <div className="py-2 pr-2 flex text-[16px] ">
-                        <a href="https://media.yellowpages.co.th/yellowpages/line/th/52336657/672d8afba717d.png?itok=6785dd8b" className="bg-[#02B92E] p-1.5 mr-2  text-white rounded-full hover:bg-[#49D249]">
+                        <a href="https://page.line.me/156vctty?openQrModal=true" className="bg-[#02B92E] p-1.5 mr-2  text-white rounded-full hover:bg-[#49D249]">
                             <FaLine />
                         </a>
                         <a href="https://www.facebook.com/rilonriland/posts/1013050012170754/" className="bg-[#1773EA] p-1.5 mr-2 text-white rounded-full hover:bg-[#5A9DF3]">
@@ -113,20 +120,20 @@ function HomePage() {
                 </div>
 
 
-                <div className="flex justify-between bg-[#FFD600] px-[100px] text-center py-12">
-                    <div className="py-12">
+                <div className="md:flex justify-between items-center bg-[#FFD600] px-[70px] text-center py-8">
+                    <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]">DEALER</h1>
-                        <img></img>
+                        <img src={Dealer} className="mt-4 mb-6 relative mx-auto rounded-[50%] object-fill overflow-hidden border-solid border-4 border-white w-[250px] h-[200px]"></img>
                         <p>ตัวแทนจำหน่ายเครื่องเชื่อมRILON JW JWjingweitip</p>
                     </div>
-                    <div className="py-12">
+                    <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]">HIGHER EFFICIENCY</h1>
-                        <img></img>
+                        <img src={HighEfficiency} className="mt-4 mb-6 relative mx-auto rounded-[50%] object-fill overflow-hidden border-solid border-4 border-white w-[250px] h-[200px]"></img>
                         <p>เครื่องเชื่อมอินเวอร์เตอร์ประสิทธิภาพสูงใช้งานง่าย</p>
                     </div>
-                    <div className="py-12">
-                        <h1 className="text-[28px]">WARANTY SERVICE</h1>
-                        <img></img>
+                    <div className="py-12 md:w-[30%]">
+                        <h1 className="text-[28px]" >WARANTY SERVICE</h1>
+                        <img src={WarantyService} className="mt-4 mb-6 relative mx-auto rounded-[50%] object-fill overflow-hidden border-solid border-4 border-white w-[250px] h-[200px]"></img>
                         <p>บริการหลังการขาย เรามีศูนย์ซ่อมและจัดจำหน่ายอะไหล่จากทีมมืออาชีพ</p>
                     </div>
                 </div>
@@ -254,48 +261,37 @@ function HomePage() {
                         <p>094-695-5599</p>
                         <p>081-697-7000 office</p>
                     </div>
-                    <div className="px-[100px] text-[#FF0000]">
-                        <p className="text-[20px] font-bold">
-                            สนใจติดต่อสอบถามเพิ่มเติมทางไลน์ สแกนเลย
-                        </p>
-                        <div className="flex justify-center items-center py-8">
-                            <img src={QRcode} className="w-[150px]"></img>
-                        </div>
-                        <p className="font-bold text-[18px]">
-                            หรือคลิกเพิ่มเพื่อน
-                        </p>
-                        <a href="https://page.line.me/156vctty?openQrModal=true" className="flex justify-center items-center py-4">
-                            <img src={LineAdd} className="w-[200px]"></img>
-                        </a>
-                        <p className="text-start py-8 text-black">
+                    <div className="">
+                        <QRcodeComponent />
+                        <p className="text-start py-8 text-black px-[100px]">
                             เป็นศูนย์รวมอุปกรณ์และอะไหล่เกือบทุกชนิด  มีสินค้าพร้อมจำหน่าย และเป็นศูนย์ซ่อมเครื่อง RILON ครบวงจร ลูกค้านำสินค้ามาซ่อมแล้วรอรับกลับได้เลย ราคาเป็นกันเอง  บริการอย่างมืออาชีพ พิสูจน์ได้ที่ บริษัท วรชาติ กรุ๊ป เท่านั้น
                         </p>
                     </div>
                 </div>
 
                 <div ref={(el) => (sectionRefs.current[1] = el)}></div>
-                <AllProduct/>
+                <ItemList/>
 
                 <CategorySearch/>
 
                 <div ref={(el) => (sectionRefs.current[2] = el)}></div>
-                <RecommendProduct/>
+                <RecommendProductList/>
 
                 <div className="bg-[#FFD600] flex px-[80px] py-4 space-between">
-                    <div className="bg-white mr-10 p-4" >
-                        <img></img>
-                        <h1 className="text-[20px] text-center">เครื่องเชื่อมขวัญใจช่าง RILON</h1>
-                        <p className="py-2">ศูนย์จำหน่ายเครื่องเชื่อมไรล่อน RILON welding machine distributor บริการพร้อมอะไหล่ สุดยอดเครื่องเชื่อมระบบอินเวอร์เตอร์เครื่องเชื่อมไฟฟ้าเครื่องเชื่อมซีโอทู เครื่องตัดพลาสม่าสำหรับงานก่อสร้างและงานอุตสาหกรรมเครื่องเชื่อมอาร์กอน อุปกรณ์เครื่องเชื่อมน้ำยางานเชื่อมเครื่องตัดไฟเบอร์เครื่องเจียร์แผ่นตัด แผ่นเจียร์ทรายซ้อน</p>
+                    <div className="bg-white mr-10" >
+                        <img src={WeldingMC} className="w-[100%]"></img>
+                        <h1 className="text-[20px] text-center p-4">เครื่องเชื่อมขวัญใจช่าง RILON</h1>
+                        <p className="px-4 pb-8">ศูนย์จำหน่ายเครื่องเชื่อมไรล่อน RILON welding machine distributor บริการพร้อมอะไหล่ สุดยอดเครื่องเชื่อมระบบอินเวอร์เตอร์เครื่องเชื่อมไฟฟ้าเครื่องเชื่อมซีโอทู เครื่องตัดพลาสม่าสำหรับงานก่อสร้างและงานอุตสาหกรรมเครื่องเชื่อมอาร์กอน อุปกรณ์เครื่องเชื่อมน้ำยางานเชื่อมเครื่องตัดไฟเบอร์เครื่องเจียร์แผ่นตัด แผ่นเจียร์ทรายซ้อน</p>
                     </div>
-                    <div className="bg-white mr-10 p-4">
-                        <img></img>
-                        <h1 className="text-[20px] text-center">ตัวแทนจำหน่าย JW Jingweitip</h1>
-                        <p className="py-2">ตัวแทนจำหน่าย อุปกรณ์และอะไหล่สำหรับงานเชื่อมอาร์ก่อน ผู้เชี่ยวชาญเกี่ยวกับอุปกรณ์เชื่อมโลหะ ตัวแทนจำหน่าย JW Jingweitip ในประเทศไทย สายTorch Ser Pana 200 ท้าย Euro หัวเชื่อม ถุงมือเชื่อม ชุดสายปืน เซรามิกแบบยาว ตัวจับลวดเชื่อม สายเชื่อม ตัวจับสายดิน ข้อต่อสายเชื่อม หน้ากากเชื่อม หมวกนิรภัย อุปกรณ์ช่างเชื่อม</p>
+                    <div className="bg-white mr-10">
+                        <img src={TorchSerPana} className="w-[100%]"></img>
+                        <h1 className="text-[20px] text-center p-4">ตัวแทนจำหน่าย JW Jingweitip</h1>
+                        <p className="px-4 pb-8">ตัวแทนจำหน่าย อุปกรณ์และอะไหล่สำหรับงานเชื่อมอาร์ก่อน ผู้เชี่ยวชาญเกี่ยวกับอุปกรณ์เชื่อมโลหะ ตัวแทนจำหน่าย JW Jingweitip ในประเทศไทย สายTorch Ser Pana 200 ท้าย Euro หัวเชื่อม ถุงมือเชื่อม ชุดสายปืน เซรามิกแบบยาว ตัวจับลวดเชื่อม สายเชื่อม ตัวจับสายดิน ข้อต่อสายเชื่อม หน้ากากเชื่อม หมวกนิรภัย อุปกรณ์ช่างเชื่อม</p>
                     </div>
-                    <div className="bg-white p-4">
-                        <img></img>
-                        <h1 className="text-[20px] text-center">เชื่อม ROBOT รวดเร็วแม่นยำ</h1>
-                        <p className="py-2">หุ่นยนต์งานเชื่อม เป็นกระบวนการเชื่อมแบบอัตโนมัติ ใช้ในงานก่อสร้าง การเชื่อมไฟฟ้าในปัจจุบันมีการพัฒนาโดยการใช้หุ่นยนต์เข้ามาประยุกต์ ซึ่งประสบความสำเร็จมากในวงการอุตสาหรรมรถยนต์และอุตสาหกรรมอื่นๆ การเชื่อมโดยโรบอทนอกจะจะทำให้งานเสร็จรวดเร็ว
+                    <div className="bg-white">
+                        <img src={Robot} className="w-[100%]"></img>
+                        <h1 className="text-[20px] text-center p-4">เชื่อม ROBOT รวดเร็วแม่นยำ</h1>
+                        <p className="px-4 pb-8">หุ่นยนต์งานเชื่อม เป็นกระบวนการเชื่อมแบบอัตโนมัติ ใช้ในงานก่อสร้าง การเชื่อมไฟฟ้าในปัจจุบันมีการพัฒนาโดยการใช้หุ่นยนต์เข้ามาประยุกต์ ซึ่งประสบความสำเร็จมากในวงการอุตสาหรรมรถยนต์และอุตสาหกรรมอื่นๆ การเชื่อมโดยโรบอทนอกจะจะทำให้งานเสร็จรวดเร็ว
                             แม่นยำ ตรงตามแบบ โดยหุ่นยนต์สามารถทำงานได้ตลอด 24 ชั่วโมง </p>
                     </div>
                 </div>
@@ -306,65 +302,7 @@ function HomePage() {
                             <MdBusinessCenter className="mt-[2px] mr-4"/>
                             <p>บริษัท วรชาติ กรุ๊ป จำกัด</p>
                         </div>
-                        <div className="py-3 flex flex-wrap">
-                            <FaBuilding className="mt-[2px] mr-4"/>
-                            <p>110/61,91/1 ตำบลไทรม้า อำเภอเมืองนนทบุรี นนทบุรี 11000</p>
-                        </div>
-                        <div className="py-3 flex flex-wrap">
-                            <FaPhoneAlt className="mt-[2px] mr-4"/>
-                            <p>
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]">08-1694-5000</a>,
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> 08-1697-7000</a>,
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> 09-5961-9901</a>
-                            </p>
-                        </div>
-                        <div className="py-3 flex flex-wrap">
-                            <FaFax className="mt-[2px] mr-4"/>
-                            <p>
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]">0-2922-2832</a>,
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> 0-2595-8518</a>
-                            </p>
-                        </div>
-                        <div className="py-3 flex flex-wrap">
-                            <MdMail className="mt-[2px] mr-4"/>
-                            <p><a href="" className="text-[#E2B22C] hover:text-[#00007E]"> janenyrilon_jingwei@hotmail.com</a>,
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> worachart_soi@hotmail.com</a>,
-                                <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> worachartgroup@gmail.com</a>
-                            </p>
-                        </div>
-                        <div className="py-3 flex flex-wrap">
-                            <FaGlobe className="mt-[2px] mr-4" />
-                            <p>
-                                <a href="https://www.rilon-riland.com/" className="text-[#E2B22C] hover:text-[#00007E]">www.rilon-riland.com</a>,
-                                <a href="https://rilon-welding.yellowpages.co.th" className="text-[#E2B22C] hover:text-[#00007E]"> https://rilon-welding.yellowpages.co.th</a>
-                            </p>
-                        </div>
-                        <div className="py-3 flex flex-wrap">
-                            <FaClock className="mt-[2px] mr-4" />
-                            <p>จันทร์ - เสาร์ เวลา 08:00 - 17:30 น. สั่งของได้ตลอด 24 ชั่วโมง</p>
-                        </div>
-                        <div className="py-3 flex flex-wrap">
-                            <a href="" className="text-[#E2B22C] hover:text-[#00007E]">13.872115747061208, 100.46261770286053</a>
-                        </div>
-                        
-                    <div className="py-3 pr-2 flex text-[16px] ">
-                        <FaShareAlt className=" mt-1.5 mr-4"/>
-                        <div className="bg-[#02B92E] p-1.5 mr-2  text-white rounded-full hover:bg-[#49D249]">
-                            <FaLine />
-                        </div>
-                        <div className="bg-[#1773EA] p-1.5 mr-2 text-white rounded-full hover:bg-[#5A9DF3]">
-                            <FaFacebookF />
-                        </div>
-                        <div className="bg-[#BB5287] p-1.5 mr-2 text-white rounded-full hover:bg-[#E9768C]">
-                            <FaInstagram />
-                        </div>
-                        <div className="bg-[#F60000] p-1.5 mr-2 text-white rounded-full hover:bg-[#FC4949]">
-                            <FaYoutube />
-                        </div>
-                        <div className="bg-[#15A2F2] p-1.5 mr-2 text-white rounded-full hover:bg-[#58A0D6]">
-                            <FaGlobe />
-                        </div>
-                    </div >
+                        <Contact />
                     </div>
                     <div className="flex items-center mx-[auto]" >
                         <button className="bg-[#E2B22C] text-white py-1 px-6 rounded-full hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300">นำทาง</button>

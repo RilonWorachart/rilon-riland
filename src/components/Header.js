@@ -13,7 +13,7 @@ function Header({ scrollToSection }) {
   let [toggleMenu, setToggoleMenu] = useState("home")
 
   return (
-    <div class="px-3 xl:px-24 py-3 flex items-center justify-between text-[#E2B22C] fixed w-full top-0 left-0 bg-white z-50">
+    <div className="px-3 xl:px-24 py-3 flex items-center justify-between text-[#E2B22C] fixed w-full top-0 left-0 bg-white z-50">
       <div className="">
         <Link to="/">
           <img src={logoW} className="w-[60px] h-[45px]"></img>
