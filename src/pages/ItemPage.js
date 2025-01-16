@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
 import CatalogDetail from '../components/itempage/CatalogDetail'
 import Contact from '../components/Contact'
+import RelateItem from '../components/itempage/RelateItem'
 
 
 function ItemPage() {
@@ -12,7 +13,7 @@ function ItemPage() {
                 <Header />
 
                 <CatalogDetail />
-                <div className="mx-[80px] my-[30px] px-[20px] py-[10px] border-[1px] border-lightgray rounded-md">
+                <div className="mx-[10%] max-w-[1400px] 2xl:mx-[auto] my-[30px] px-[20px] py-[10px] border-[1px] border-lightgray rounded-md">
                     <div className="pb-4">
                         <h1 className="text-[30px]">
                             ข้อมูลติดต่อ
@@ -23,6 +24,8 @@ function ItemPage() {
                         <Contact />
                     </div>
                 </div>
+
+                <RelateItem/>
 
                 <CategorySearch />
                 <Footer />

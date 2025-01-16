@@ -1,12 +1,12 @@
 import {
   BrowserRouter, Routes, Route
 } from "react-router-dom";
-import ScrollToTop from './components/ScrollToTop.js';
 import HomePage from "./pages/HomePage.js";
 import CatalogPage from "./pages/CatalogPage.js";
 import ItemPage from "./pages/ItemPage.js";
 import FormPage from "./pages/FormPage.js";
 import BackToTopButton from "./components/BackToTopButton.js";
+import ScrollToTop from "./utils/ScrollToTop.js";
 
 
 function App() {
