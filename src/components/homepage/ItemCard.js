@@ -21,10 +21,9 @@ function ItemCard({ id, image, name, description, searchword, brand }) {
           <p className="text-[18px] py-2">{brand} </p>
 
           <div className={`w-full flex items-center 
-                transition-transform duration-300 ease-in-out 
-                ${isActive ? '' : 'hidden'}`}
-            style={{ transformOrigin: 'top' }}>
-            <span className="text-[14px] text-[#E5B22C]">{description} </span>
+                transition-all duration-1000 
+                ${isActive ? 'max-h-[500px]' : 'max-h-0'}`}>
+            <span className={`text-[14px] ${isActive ? 'text-opacity-100 text-[#E5B22C]' : 'max-h-0 text-opacity-0 text-[#E5B22C]'}`}>{description} </span>
           </div>
         </div>
 

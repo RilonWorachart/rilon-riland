@@ -1,11 +1,25 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
 
 function CatalogPage() {
+  const { id } = useParams();
+  const [productData, setProductData] = useState([])
+
+
+  useEffect(() => {
+    fetch('allproduct.json')
+      .then((response) => response.json())
+      .then((result) => {
+        setProductData(result);
+      })
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
+
   return (
     <>
       <div className="min-h-screen font-plex-sans-thai">
