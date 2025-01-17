@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
+import ItemList from '../components/ItemList'
 import { Link, useParams } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
 
@@ -31,9 +32,7 @@ function CatalogPage() {
               <span className="hover:text-[#00007E]">หน้าแรก</span>
             </Link>
             <span> » </span>
-            <Link to="/">
-              <span className="hover:text-[#00007E]">แคตตาล็อกออนไลน์</span>
-            </Link>
+            <span className="">แคตตาล็อกออนไลน์</span>
           </p>
           <h2 className="py-1 text-[20px]">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</h2>
         </div>
@@ -54,6 +53,8 @@ function CatalogPage() {
             </button>
           </form>
         </div>
+
+        <ItemList/>
 
 
         <CategorySearch />

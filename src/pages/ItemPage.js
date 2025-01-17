@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
-import CatalogDetail from '../components/itempage/CatalogDetail'
+import ItemDetail from '../components/itempage/ItemDetail'
 import Contact from '../components/Contact'
 import RelateItem from '../components/itempage/RelateItem'
 
@@ -11,8 +11,7 @@ function ItemPage() {
         <>
             <div className="min-h-screen font-plex-sans-thai">
                 <Header />
-
-                <CatalogDetail />
+                <ItemDetail />
                 <div className="mx-[10%] max-w-[1400px] 2xl:mx-[auto] my-[30px] px-[20px] py-[10px] border-[1px] border-lightgray rounded-md">
                     <div className="pb-4">
                         <h1 className="text-[30px]">
@@ -24,9 +23,7 @@ function ItemPage() {
                         <Contact />
                     </div>
                 </div>
-
                 <RelateItem/>
-
                 <CategorySearch />
                 <Footer />
             </div>

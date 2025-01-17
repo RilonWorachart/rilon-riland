@@ -6,7 +6,7 @@ import RecommendProductList from '../components/homepage/RecommendProductList'
 import YouTubeEmbed from '../components/YoutubeEmbed'
 import Contact from '../components/Contact'
 import QRcodeComponent from '../components/QRcodeComponent'
-import ItemList from '../components/homepage/ItemList'
+import ItemList from '../components/ItemList'
 import { FaFacebookF, FaGlobe, FaInstagram, FaLine, FaPhoneAlt, FaYoutube, FaMapMarkerAlt} from "react-icons/fa";
 import { MdBusinessCenter, MdMail } from "react-icons/md";
 import Logo from '../images/logo.png'
@@ -50,10 +50,10 @@ function HomePage() {
             <div className="min-h-screen font-plex-sans-thai">
                 <Header scrollToSection={scrollToSection}/>
                 <img src={picture1} className="mt-[70px]"></img>
-                <div className="px-[100px] pt-4 pb-6 text-center text-white bg-[#E2B22C]">
+                <div className="px-[10%] pt-4 pb-6 text-center text-white bg-[#E2B22C]">
                     <h1 className="text-[34px]">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</h1>
                 </div>
-                <div className="px-[100px] py-4 aligns-center justify-center ">
+                <div className="px-[10%] py-4 aligns-center justify-center ">
                     <div className="py-1 flex flex-wrap">
                         <FaPhoneAlt className="mt-[2px] mr-4" />
                         <a className="text-[#E2B22C] hover:text-[#00007E]" href="">08-1694-5000</a>,
@@ -91,15 +91,15 @@ function HomePage() {
                 </div >
 
 
-                <div className="px-[100px] text-center bg-[#152431] py-8">
+                <div className="px-[10%] text-center bg-[#152431] py-8">
                     <div className="pb-4">
                         <h1 className="text-[34px] text-white">
                             ตัวแทนจำหน่ายเครื่องเชื่อมอินเวอร์เตอร์ เครื่องเชื่อมไรล่อน
                         </h1>
                         <div className="text-[#E2B22C] h-[3px] w-[60px] text-center mx-[auto] bg-[#E2B22C]" />
                     </div>
-                    <div className="flex">
-                        <div className="text-[#E2B22C] backdrop-blur-sm bg-white/10 pt-1 pb-4 px-[20px] w-[60%]">
+                    <div className="md:flex">
+                        <div className="text-[#E2B22C] backdrop-blur-sm bg-white/10 z-0 pt-1 pb-4 px-[20px] md:w-[60%]">
                             <h1 className="text-[34px] pt-3 pb-6 ">
                                 บริษัท วรชาติ กรุ๊ป จำกัด
                             </h1>
@@ -113,33 +113,33 @@ function HomePage() {
                                 "คุณภาพและความพึงพอใจของลูกค้า สำคัญเสมอ"
                             </h2>
                         </div>
-                        <div className="w-[40%] ml-[30px]">
+                        <div className="md:w-[40%] md:ml-[30px] mt-10 md:mt-0">
                             <img src={Logo}></img>
                         </div>
                     </div>
                 </div>
 
 
-                <div className="md:flex justify-between items-center bg-[#FFD600] px-[70px] text-center py-8">
+                <div className="md:flex justify-between items-center bg-[#FFD600] px-[10%] text-center py-8">
                     <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]">DEALER</h1>
-                        <img src={Dealer} className="mt-4 mb-6 relative mx-auto rounded-[50%] object-fill overflow-hidden border-solid border-4 border-white w-[250px] h-[200px]"></img>
+                        <img src={Dealer} className="mt-4 mb-6 mx-auto rounded-[50%] object-right overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96  object-cover"></img>
                         <p>ตัวแทนจำหน่ายเครื่องเชื่อมRILON JW JWjingweitip</p>
                     </div>
                     <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]">HIGHER EFFICIENCY</h1>
-                        <img src={HighEfficiency} className="mt-4 mb-6 relative mx-auto rounded-[50%] object-fill overflow-hidden border-solid border-4 border-white w-[250px] h-[200px]"></img>
+                        <img src={HighEfficiency} className="mt-4 mb-6 mx-auto rounded-[50%] object-center overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96 object-cover"></img>
                         <p>เครื่องเชื่อมอินเวอร์เตอร์ประสิทธิภาพสูงใช้งานง่าย</p>
                     </div>
                     <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]" >WARANTY SERVICE</h1>
-                        <img src={WarantyService} className="mt-4 mb-6 relative mx-auto rounded-[50%] object-fill overflow-hidden border-solid border-4 border-white w-[250px] h-[200px]"></img>
+                        <img src={WarantyService} className="mt-4 mb-6 mx-auto rounded-[50%]  overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96 object-cover"></img>
                         <p>บริการหลังการขาย เรามีศูนย์ซ่อมและจัดจำหน่ายอะไหล่จากทีมมืออาชีพ</p>
                     </div>
                 </div>
 
 
-                <div className=" py-4 text-center px-[130px] ">
+                <div className="px-[10%] py-4 text-center ">
                     <div className="flex justify-center items-center">
                         <img src={YBanding0201} className="py-4 xl:max-w-[50%] item-center"></img>
                     </div>
@@ -177,22 +177,21 @@ function HomePage() {
                 </div>
 
 
-                <div className="px-[100px] py-[160px] bg-[#FFD600] flex justify-between">
-                    <div className="w-[50%] px-4 ">
+                <div className="px-[10%] py-[70px] bg-[#FFD600] md:flex md:justify-between">
+                    <div className="md:w-[50%] px-4 ">
                         <h1 className="py-6 text-[30px] text-center">
-                            ศูนย์จัดจำหน่าย
-                            และซ่อมชุดเครื่องเชื่อมอินเวอร์เตอร์ไรล่อน
+                            ศูนย์จัดจำหน่ายและซ่อมชุดเครื่องเชื่อมอินเวอร์เตอร์ไรล่อน
                         </h1>
                         <p className="py-4">
                             จำหน่ายเครื่องเชื่อมไรล่อนและอุปกรณ์เสริม มีทุกรุ่นรองรับทุกการใช้งาน ไม่ว่าจะเป็นเครื่อง ARC TIG  MIG CUT SAW คุณภาพสูงบริการครบวงจรทั้งอะไหล่และอุปกรณ์ ศูนย์ซ่อมบำรุง ซื้อครบจบที่เดียว
                         </p>
                     </div>
-                    <div className="w-[47%]">
+                    <div className="md:w-[47%]">
                         <img src={YellowRilon}></img>
                     </div>
                 </div>
 
-                <div className="px-[100px] py-4">
+                <div className="px-[10%] py-4">
                     <div className="pb-4 text-center">
                         <h1 className="text-[34px]">
                             บริษัท วรชาติ กรุ๊ป จำกัด
@@ -277,13 +276,13 @@ function HomePage() {
                 <div ref={(el) => (sectionRefs.current[2] = el)}></div>
                 <RecommendProductList/>
 
-                <div className="bg-[#FFD600] flex px-[80px] py-4 space-between">
-                    <div className="bg-white mr-10" >
+                <div className="bg-[#FFD600] md:flex px-[10%] py-4 space-between">
+                    <div className="bg-white mb-10 md:mb-0 md:mr-10" >
                         <img src={WeldingMC} className="w-[100%]"></img>
                         <h1 className="text-[20px] text-center p-4">เครื่องเชื่อมขวัญใจช่าง RILON</h1>
                         <p className="px-4 pb-8">ศูนย์จำหน่ายเครื่องเชื่อมไรล่อน RILON welding machine distributor บริการพร้อมอะไหล่ สุดยอดเครื่องเชื่อมระบบอินเวอร์เตอร์เครื่องเชื่อมไฟฟ้าเครื่องเชื่อมซีโอทู เครื่องตัดพลาสม่าสำหรับงานก่อสร้างและงานอุตสาหกรรมเครื่องเชื่อมอาร์กอน อุปกรณ์เครื่องเชื่อมน้ำยางานเชื่อมเครื่องตัดไฟเบอร์เครื่องเจียร์แผ่นตัด แผ่นเจียร์ทรายซ้อน</p>
                     </div>
-                    <div className="bg-white mr-10">
+                    <div className="bg-white mb-10 md:mb-0 md:mr-10">
                         <img src={TorchSerPana} className="w-[100%]"></img>
                         <h1 className="text-[20px] text-center p-4">ตัวแทนจำหน่าย JW Jingweitip</h1>
                         <p className="px-4 pb-8">ตัวแทนจำหน่าย อุปกรณ์และอะไหล่สำหรับงานเชื่อมอาร์ก่อน ผู้เชี่ยวชาญเกี่ยวกับอุปกรณ์เชื่อมโลหะ ตัวแทนจำหน่าย JW Jingweitip ในประเทศไทย สายTorch Ser Pana 200 ท้าย Euro หัวเชื่อม ถุงมือเชื่อม ชุดสายปืน เซรามิกแบบยาว ตัวจับลวดเชื่อม สายเชื่อม ตัวจับสายดิน ข้อต่อสายเชื่อม หน้ากากเชื่อม หมวกนิรภัย อุปกรณ์ช่างเชื่อม</p>
@@ -296,7 +295,7 @@ function HomePage() {
                     </div>
                 </div>
 
-                <div ref={(el) => (sectionRefs.current[3] = el)} className="px-[120px] py-[100px] flex">
+                <div ref={(el) => (sectionRefs.current[3] = el)} className="px-[12%] py-[100px] flex">
                     <div className="w-[50%]">
                         <div className="py-3 flex flex-wrap">
                             <MdBusinessCenter className="mt-[2px] mr-4"/>

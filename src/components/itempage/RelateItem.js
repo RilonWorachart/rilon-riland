@@ -1,12 +1,10 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import ItemCard from '../homepage/ItemCard';
+import ItemCard from '../ItemCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css'; // Core Swiper styles
-import 'swiper/css/navigation'; // Navigation styles (if needed)
-import 'swiper/css/pagination'; // Pagination styles (if needed)
+
 
 function RelateItem() {
   const { id } = useParams();
@@ -40,7 +38,7 @@ function RelateItem() {
           <div className="text-[#E2B22C] h-[3px] w-[60px] text-center mx-[auto] bg-[#E2B22C]" />
         </div>
 
-        <div className="py-10 relative w-full mx-auto">
+        <div className="py-10 relative w-full mx-auto z-10">
 
           <Swiper
             spaceBetween={10}
@@ -71,13 +69,13 @@ function RelateItem() {
               disableOnInteraction: false, // Keep autoplay running even if user interacts
             }}
             onSwiper={(swiper) => (swiperRef.current = swiper)} // Store the swiper instance
-            className="mySwiper"
+            className=""
           >
             {productData.map((item) => {
 
               return (
                 <SwiperSlide key={item.id}>
-                  <ItemCard key={item.id} image={item.image} id={item.id} name={item.name} category={item.category}
+                  <ItemCard className="z-10" key={item.id} image={item.image} id={item.id} name={item.name} category={item.category}
                     description={item.description} searchword={item.searchword} brand={item.brand}
                   />
 
@@ -88,13 +86,13 @@ function RelateItem() {
 
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-700 text-white rounded-full z-10"
+            className="z-40 absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-700 text-white rounded-full "
           >
             &#8592;
           </button>
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-gray-700 text-white rounded-full z-10"
+            className="z-40 absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-gray-700 text-white rounded-full "
           >
             &#8594;
           </button>

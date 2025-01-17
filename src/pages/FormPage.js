@@ -49,8 +49,8 @@ function FormPage() {
       <div className="mt-[70px] bg-[#E2B22C] text-white px-3 xl:px-24 py-3 md:flex md:justify-between md:items-center">
         <p className="py-1">
           <Link to="/" className="hover:text-[#00007E]">หน้าแรก</Link> <span> » </span>
-          <Link to="/" className="hover:text-[#00007E]">แคตตาล็อกออนไลน์</Link> <span> » </span>
-          <Link to={`/catalog/${id}`} className="hover:text-[#00007E]">{productData.name}</Link>
+          <Link to="/catalog" className="hover:text-[#00007E]">แคตตาล็อกออนไลน์</Link> <span> » </span>
+          <Link to={`/catalog/item/${id}`} className="hover:text-[#00007E]">{productData.name}</Link>
           <span> » ขอรายละเอียดเพิ่มเติม</span>
         </p>
         <h2 className="py-1 text-[20px]">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</h2>

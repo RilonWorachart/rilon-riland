@@ -6,7 +6,7 @@ import { FaFacebook, FaWhatsapp, FaLine, FaPinterest } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn, } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 
-function CatalogDetail() {
+function ItemDetail() {
     const { id } = useParams();
     const [productData, setProductData] = useState([])
 
@@ -34,7 +34,7 @@ function CatalogDetail() {
                         <span className="hover:text-[#00007E]">หน้าแรก</span>
                     </Link>
                     <span> » </span>
-                    <Link to="/">
+                    <Link to="/catalog">
                         <span className="hover:text-[#00007E]">แคตตาล็อกออนไลน์</span>
                     </Link>
                     <span> » </span>
@@ -60,31 +60,33 @@ function CatalogDetail() {
             </div>
 
             <div className="mx-[10%] max-w-[1400px] 2xl:mx-[auto] my-[30px] px-[15px] py-[15px] border-[1px] border-lightgray rounded-md lg:flex">
-                <img className=" w-[100%] lg:w-[30%] border rounded-md lg:mr-[40px]" src={`/images/products/${productData.image}`} alt={productData.name} />
+                <img className=" w-[100%] lg:w-[35%] border rounded-md lg:mr-[40px] aspect-[1/1]" src={`/images/products/${productData.image}`} alt={productData.name} />
                 <div className="lg:w-[70%]">
                     <p className="text-[32px] pt-4">{productData.name}</p>
                     <p className="py-1">
                         <span>ตราสินค้า : </span>
-                        <span className="text-[#E2B22C]">{productData.brand}</span>
+                        <Link to={`/catalog`}>
+                            <span className="text-[#E2B22C]">{productData.brand}</span>
+                        </Link>
                     </p>
                     <hr></hr>
                     <div className="flex py-6">
-                        <Link to={`/catalog/${id}/request-form`}>
+                        <Link to={`/catalog/item/${id}/request-form`}>
                             <button className="bg-[#E2B22C] border text-white py-2 px-6 mr-4 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">ขอรายละเอียด</button>
                         </Link>
-                        <Link to={`/catalog/${id}/request-form`}>
+                        <Link to={`/catalog/item/${id}/request-form`}>
                             <button className="bg-[#E2B22C] border text-white py-2 px-6 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">ขอไปเสนอราคา</button>
                         </Link>
                     </div>
                     <hr></hr>
                     <p className="py-2">หมวดหมู่</p>
                     <div className="flex">
-                        <Link to={`/`}>
+                        <Link to={`/catalog`}>
                             <button className="bg-[#E2B22C] border text-white text-[13px] py-1 px-4 mr-2 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">{productData.category}</button>
                         </Link>
                     </div>
                     <p className="py-2">คำค้นหา</p>
-                    <Link to={`/`}>
+                    <Link to={`/catalog`}>
                         <button className="bg-[#E2B22C] border text-white text-[13px] mb-2 py-1 px-4 mr-4 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">{productData.searchword}</button>
                     </Link>
                     <div>
@@ -124,7 +126,7 @@ function CatalogDetail() {
                                 <FaWhatsapp />
                             </div>
                         </a>
-                        <a href="https://www.rilon-riland.com/">
+                        <a href="mailto:janenyrilon_jingwei@hotmail.com">
                             <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#0078D4] text-[#0078D4] rounded-full hover:bg-[#0078D4] hover:text-white transition duration-300">
                                 <MdOutlineEmail />
                             </div>
@@ -143,8 +145,8 @@ function CatalogDetail() {
                     <div className="text-[#E2B22C] h-[3px] w-[60px] bg-[#E2B22C]" />
                 </div>
                 <div>
-                    <h1 className="text-[32px] pt-4">{productData.name}</h1>
-                    <p className="py-4">{productData.description}</p>
+                    <h1 className="text-[32px] pt-4 pb-2 text-center">{productData.name}</h1>
+                    <div dangerouslySetInnerHTML={{ __html: productData.html }} className="py-4"/>
                 </div>
                 <QRcodeComponent />
                 <div className="text-center">
@@ -162,4 +164,4 @@ function CatalogDetail() {
     )
 }
 
-export default CatalogDetail
+export default ItemDetail
