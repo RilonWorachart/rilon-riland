@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaInstagram, FaLine, FaFacebookSquare, FaYoutubeSquare } from "react-icons/fa";
-import logoW from '../images/logo-w.png'
+
 
 
 function Footer() {
@@ -8,7 +8,7 @@ function Footer() {
         <>
             <div class="px-2 py-8 bg-[#E2B22C] text-white text-center">
                 <div className="flex justify-center py-[22px]">
-                    <img src={logoW} className="w-[75px]"></img>
+                    <img src='/images/page_images/logo-w.png' className="w-[75px]"></img>
                 </div>
                 <div className="pb-2">
                     <p className="text-[20px] font-bold">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</p>

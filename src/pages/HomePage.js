@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
@@ -7,49 +7,26 @@ import YouTubeEmbed from '../components/YoutubeEmbed'
 import Contact from '../components/Contact'
 import QRcodeComponent from '../components/QRcodeComponent'
 import ItemList from '../components/ItemList'
+import { useScroll } from '../components/ScrollContext';
 import { FaFacebookF, FaGlobe, FaInstagram, FaLine, FaPhoneAlt, FaYoutube, FaMapMarkerAlt} from "react-icons/fa";
 import { MdBusinessCenter, MdMail } from "react-icons/md";
-import Logo from '../images/logo.png'
-import picture1 from '../images/Y-Banding-03-01.png'
-import YBanding0201 from '../images/Y-Banding-02-01.png'
-import Line3pic from '../images/Line3pic.png'
-import PlusmaPic from '../images/Plusma.png'
-import QRcode from '../images/QRcode.png'
-import LineAdd from '../images/Addline.png'
-import Argon from '../images/Argon.png'
-import Book from '../images/Book.png'
-import Equipment from '../images/Equipment.png'
-import Jingweitip from '../images/Jingweitip.png'
-import WP from '../images/WP.png'
-import Torch from '../images/Torch.png'
-import Rotate from '../images/Rotate.png'
-import CO2 from '../images/co2.png'
-import YellowRilon from '../images/YellowRilon.png'
-import Dealer from '../images/Dealer.jpg'
-import HighEfficiency from '../images/HighEfficiency.jpg'
-import WarantyService from '../images/WarantyService.jpg'
-import WeldingMC from '../images/WeldingMC.png'
-import TorchSerPana from '../images/TorchSerPana.png'
-import Robot from '../images/Robot.png'
-
 
 
 function HomePage() {
-    const sectionRefs = useRef([]);
+    const { setSectionRefs } = useScroll();
+    const section1Ref = useRef(null);
+    const section2Ref = useRef(null);
+    const section3Ref = useRef(null);
+    const section4Ref = useRef(null);
 
-    const scrollToSection = (index) => {
-        // Scroll to the referenced section
-        sectionRefs.current[index].scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      };
+    useEffect(() => {
+        setSectionRefs([section1Ref.current, section2Ref.current, section3Ref.current, section4Ref.current]);
+      }, [setSectionRefs]);
 
     return (
         <>
             <div className="min-h-screen font-plex-sans-thai">
-                <Header scrollToSection={scrollToSection}/>
-                <img src={picture1} className="mt-[70px]"></img>
+                <img src="/images/page_images/Y-Banding-03-01.png" className="mt-[70px]"></img>
                 <div className="px-[10%] pt-4 pb-6 text-center text-white bg-[#E2B22C]">
                     <h1 className="text-[34px]">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</h1>
                 </div>
@@ -91,7 +68,7 @@ function HomePage() {
                 </div >
 
 
-                <div className="px-[10%] text-center bg-[#152431] py-8">
+                <div className="px-[10%] text-center py-8 background">
                     <div className="pb-4">
                         <h1 className="text-[34px] text-white">
                             ตัวแทนจำหน่ายเครื่องเชื่อมอินเวอร์เตอร์ เครื่องเชื่อมไรล่อน
@@ -114,7 +91,7 @@ function HomePage() {
                             </h2>
                         </div>
                         <div className="md:w-[40%] md:ml-[30px] mt-10 md:mt-0">
-                            <img src={Logo}></img>
+                            <img src="/images/page_images/logo.png"></img>
                         </div>
                     </div>
                 </div>
@@ -123,17 +100,17 @@ function HomePage() {
                 <div className="md:flex justify-between items-center bg-[#FFD600] px-[10%] text-center py-8">
                     <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]">DEALER</h1>
-                        <img src={Dealer} className="mt-4 mb-6 mx-auto rounded-[50%] object-right overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96  object-cover"></img>
+                        <img src='/images/page_images/Dealer.jpg' className="mt-4 mb-6 mx-auto rounded-[50%] object-right overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96  object-cover"></img>
                         <p>ตัวแทนจำหน่ายเครื่องเชื่อมRILON JW JWjingweitip</p>
                     </div>
                     <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]">HIGHER EFFICIENCY</h1>
-                        <img src={HighEfficiency} className="mt-4 mb-6 mx-auto rounded-[50%] object-center overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96 object-cover"></img>
+                        <img src='/images/page_images/HighEfficiency.jpg' className="mt-4 mb-6 mx-auto rounded-[50%] object-center overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96 object-cover"></img>
                         <p>เครื่องเชื่อมอินเวอร์เตอร์ประสิทธิภาพสูงใช้งานง่าย</p>
                     </div>
                     <div className="py-12 md:w-[30%]">
                         <h1 className="text-[28px]" >WARANTY SERVICE</h1>
-                        <img src={WarantyService} className="mt-4 mb-6 mx-auto rounded-[50%]  overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96 object-cover"></img>
+                        <img src='/images/page_images/WarantyService.jpg' className="mt-4 mb-6 mx-auto rounded-[50%]  overflow-hidden border-solid border-8 border-white w-96 h-96 md:w-64 md:h-64 2xl:w-96 2xl:h-96 object-cover"></img>
                         <p>บริการหลังการขาย เรามีศูนย์ซ่อมและจัดจำหน่ายอะไหล่จากทีมมืออาชีพ</p>
                     </div>
                 </div>
@@ -141,15 +118,15 @@ function HomePage() {
 
                 <div className="px-[10%] py-4 text-center ">
                     <div className="flex justify-center items-center">
-                        <img src={YBanding0201} className="py-4 xl:max-w-[50%] item-center"></img>
+                        <img src='/images/page_images/Y-Banding-02-01.png' className="py-4 xl:max-w-[50%] item-center"></img>
                     </div>
                     <hr />
                     <h1 className="py-4 text-[24px]">
                         ติดต่อ แอดไลน์ ได้เลย
                     </h1>
                     
-                    <div ref={(el) => (sectionRefs.current[0] = el)} className="flex justify-center items-center">
-                        <img src={Line3pic} className="py-4 xl:max-w-[40%] item-center"></img>
+                    <div  ref={section1Ref} className="flex justify-center items-center">
+                        <img src='/images/page_images/Line3pic.png' className="py-4 xl:max-w-[40%] item-center"></img>
                     </div>
 
                     <div>
@@ -161,17 +138,17 @@ function HomePage() {
                                 บริษัท วรชาติ กรุ๊ป จำกัด ก่อตั้งมาตั้งแต่ปี 2551 โดยผู้บริหารที่มีความชำนาญงานด้านการงานเชื่อมสแตนเลส งานเชื่อมโลหะ ด้วยประสบการณ์ด้านงานเชื่อมต่างๆ จึงเล็งเห็นธุรกิจด้านเครื่องเชื่อม เครื่องตัดพลาสม่า เราจึงมีความมุ่งมั่นที่จะเป็นตัวแทนจำหน่าย Rilon เครื่องเชื่อมตัดในประเทศไทย ผลิตสินค้าให้เป็นไปตามมาตรฐานทางวิศวกรรม พร้อมที่จะพัฒนาผลิตภัณฑ์สินค้าให้มีคุณภาพอย่างต่อเนื่อง และขายสินค้าในราคายุติธรรม
                             </p>
                             <div className="flex justify-center items-center">
-                                <img src={PlusmaPic} className="py-4 xl:max-w-[35%] item-center"></img>
+                                <img src='/images/page_images/Plusma.png' className="py-4 xl:max-w-[35%] item-center"></img>
                             </div>
                     </div>
                     <div className="pt-4 pb-14">
                         <p className="text-[#FF0042] text-[20px] py-[20px]">สนใจติดต่อสอบถามเพิ่มเติม สแกนเลย</p>
                         <div className="flex justify-center items-center pt-[10px]">
-                            <img src={QRcode} className="w-[200px]"></img>
+                            <img src='/images/page_images/QRcode.png' className="w-[200px]"></img>
                         </div>
                         <p className="text-[#FF0042] text-[20px] pt-[30px] py-[10px]">คลิกเพิ่มเพื่อน</p>
                         <a href="https://page.line.me/156vctty?openQrModal=true" className="flex justify-center items-center">
-                            <img src={LineAdd} className="w-[200px]"></img>
+                            <img src='/images/page_images/AddLine.png' className="w-[200px]"></img>
                         </a>
                     </div>
                 </div>
@@ -187,7 +164,7 @@ function HomePage() {
                         </p>
                     </div>
                     <div className="md:w-[47%]">
-                        <img src={YellowRilon}></img>
+                        <img src='/images/page_images/YellowRilon.png'></img>
                     </div>
                 </div>
 
@@ -208,7 +185,7 @@ function HomePage() {
                         <li>เครื่องเชื่อมไฟฟ้า ARC 200GE, ARC 200T, ARC 200CT, ARC 300, ARC 400GT, ARC 500GT, ARC 6301</li>
                     </ul>
                     <div className="flex justify-center items-center py-12">
-                        <img src={CO2} className="xl:max-w-[1200px]"></img>
+                        <img src='/images/page_images/CO2.png' className="xl:max-w-[1200px]"></img>
                     </div>
                     <p className="font-bold py-2">เครื่องเชื่อมซีโอทู MIG </p>
                     <ul class="list-disc pl-6 space-y-2 py-2">
@@ -220,38 +197,38 @@ function HomePage() {
                         <li>เครื่องตัดพลาสม่า CUT 40, CUT 60PILOT, CUT 100/160, CUT 80G, CUT 100GT, CUT 125I , CUT 165I</li>
                     </ul>
                     <div className="flex justify-center items-center py-12">
-                        <img src={Argon} className="xl:max-w-[1200px]"></img>
+                        <img src='/images/page_images/Argon.png' className="xl:max-w-[1200px]"></img>
                     </div>
                     <p>
                         อึด ทน หมดปัญหาเชื่อมแล้วหยุด สามารถใช้งานได้ต่อเนื่องตลอดอายุเครื่อง จำหน่าย เครื่องเชื่อมไฟฟ้า, เครื่องเชื่อมไฟฟ้าสำหรับอุตสาหกรรม, เครื่องเชื่อมไฟฟ้าสำหรับงานก่อสร้างไม่ว่าจะงานเล็กหรืองานใหญ่, เครื่องเชื่อมอาร์ก้อน, เครื่องเชื่อมสแตนเลส, เครื่องเชื่อมอลูมิเนียม, เครื่องตัดพลาสม่า, เครื่องเชื่อมซีโอทู, สายเชื่อม, สายตัด, เครื่องตัด, เครื่องเจียร์, อุปกรณ์เครื่องเชื่อม, อุปกรณ์เครื่องตัด, น้ำยางานเชื่อม, แผ่นตัด, แผ่นเจียร์, ทรายซ้อน, สายพานบาก, ถังอาร์ก้อน, ถังCO2
                     </p>
                     <div className="flex justify-center items-center py-12">
-                        <img src={Jingweitip} className="xl:max-w-[1200px]"></img>
+                        <img src='/images/page_images/Jingweitip.png' className="xl:max-w-[1200px]"></img>
                     </div>
                     <h1 className="text-[30px] font-bold">
                         อะไหล่อุปกรณ์
                     </h1>
                     <div className="flex justify-center items-center py-12">
-                    <img src={WP} className="xl:max-w-[1200px]"></img>
+                    <img src='/images/page_images/WP.png' className="xl:max-w-[1200px]"></img>
                     </div>
                     <p>
                         JW Jingweitip "สินค้าหรือผลิตภัณท์ที่ได้ผ่านการรับรองระบบการจัดการคุณภาพ ISO9001-2015; ผลิตภัณฑ์ต่างๆ ที่ผลิตออกมามีความสมเหตุสมผลในด้านการออกแบบและเทคโนโลยีขั้นสูง และจำหน่ายได้ดีในเอเชียตะวันออกเฉียงใต้ ยุโรป และสหรัฐอเมริกา หัวเชื่อม TIG, หัวเชื่อม MIG, หัวตัดพลาสม่า และผลิตภัณฑ์ชุดข้อต่อสายต่างๆ ได้ผ่านการรับรอง CE ของสหภาพยุโรปและการรับรอง 3C ระดับประเทศ"ที่เดียวจบครบจบที่เรา
                     </p>
                     <div className="flex justify-center items-center pt-12 pb-6">
-                        <img src={Torch} className="xl:max-w-[1200px]"></img>
+                        <img src='/images/page_images/Torch.png' className="xl:max-w-[1200px]"></img>
                     </div>
                     <div className="flex justify-center items-center py-6">
-                        <img src={Equipment} className="xl:max-w-[1200px]"></img>
+                        <img src='/images/page_images/Equipment.png' className="xl:max-w-[1200px]"></img>
                     </div>
                     <div className="flex justify-center items-center pt-6 pb-12">
-                        <img src={Rotate} className="xl:max-w-[1200px]"></img>
+                        <img src='/images/page_images/Rotate.png' className="xl:max-w-[1200px]"></img>
                     </div>
                 </div>
 
                 <div className="text-center">
                     <a href="https://anyflip.com/uggut/ubmb/" className="text-[30px] text-[#FFFF00]">ดูข้อมูลเพิ่มเติมได้ที่ E-Book</a>
                     <div className="flex justify-center items-center pb-8">
-                        <img src={Book} className="w-[350px]"></img>
+                        <img src='/images/page_images/Book.png' className="w-[350px]"></img>
                     </div>
                     <p className="py-10 font-bold text-[20px]">สนใจสอบถามรายละเอียดเพิ่มเติมได้ที่</p>
                     <div className="text-[#E4403C] pb-8 text-[17px]">
@@ -268,34 +245,34 @@ function HomePage() {
                     </div>
                 </div>
 
-                <div ref={(el) => (sectionRefs.current[1] = el)}></div>
+                <div  ref={section2Ref}></div>
                 <ItemList/>
 
                 <CategorySearch/>
 
-                <div ref={(el) => (sectionRefs.current[2] = el)}></div>
+                <div  ref={section3Ref}></div>
                 <RecommendProductList/>
 
                 <div className="bg-[#FFD600] md:flex px-[10%] py-4 space-between">
                     <div className="bg-white mb-10 md:mb-0 md:mr-10" >
-                        <img src={WeldingMC} className="w-[100%]"></img>
+                        <img src='/images/page_images/WeldingMC.png' className="w-[100%]"></img>
                         <h1 className="text-[20px] text-center p-4">เครื่องเชื่อมขวัญใจช่าง RILON</h1>
                         <p className="px-4 pb-8">ศูนย์จำหน่ายเครื่องเชื่อมไรล่อน RILON welding machine distributor บริการพร้อมอะไหล่ สุดยอดเครื่องเชื่อมระบบอินเวอร์เตอร์เครื่องเชื่อมไฟฟ้าเครื่องเชื่อมซีโอทู เครื่องตัดพลาสม่าสำหรับงานก่อสร้างและงานอุตสาหกรรมเครื่องเชื่อมอาร์กอน อุปกรณ์เครื่องเชื่อมน้ำยางานเชื่อมเครื่องตัดไฟเบอร์เครื่องเจียร์แผ่นตัด แผ่นเจียร์ทรายซ้อน</p>
                     </div>
                     <div className="bg-white mb-10 md:mb-0 md:mr-10">
-                        <img src={TorchSerPana} className="w-[100%]"></img>
+                        <img src='/images/page_images/TorchSerPana.png' className="w-[100%]"></img>
                         <h1 className="text-[20px] text-center p-4">ตัวแทนจำหน่าย JW Jingweitip</h1>
                         <p className="px-4 pb-8">ตัวแทนจำหน่าย อุปกรณ์และอะไหล่สำหรับงานเชื่อมอาร์ก่อน ผู้เชี่ยวชาญเกี่ยวกับอุปกรณ์เชื่อมโลหะ ตัวแทนจำหน่าย JW Jingweitip ในประเทศไทย สายTorch Ser Pana 200 ท้าย Euro หัวเชื่อม ถุงมือเชื่อม ชุดสายปืน เซรามิกแบบยาว ตัวจับลวดเชื่อม สายเชื่อม ตัวจับสายดิน ข้อต่อสายเชื่อม หน้ากากเชื่อม หมวกนิรภัย อุปกรณ์ช่างเชื่อม</p>
                     </div>
                     <div className="bg-white">
-                        <img src={Robot} className="w-[100%]"></img>
+                        <img src='/images/page_images/Robot.png' className="w-[100%]"></img>
                         <h1 className="text-[20px] text-center p-4">เชื่อม ROBOT รวดเร็วแม่นยำ</h1>
                         <p className="px-4 pb-8">หุ่นยนต์งานเชื่อม เป็นกระบวนการเชื่อมแบบอัตโนมัติ ใช้ในงานก่อสร้าง การเชื่อมไฟฟ้าในปัจจุบันมีการพัฒนาโดยการใช้หุ่นยนต์เข้ามาประยุกต์ ซึ่งประสบความสำเร็จมากในวงการอุตสาหรรมรถยนต์และอุตสาหกรรมอื่นๆ การเชื่อมโดยโรบอทนอกจะจะทำให้งานเสร็จรวดเร็ว
                             แม่นยำ ตรงตามแบบ โดยหุ่นยนต์สามารถทำงานได้ตลอด 24 ชั่วโมง </p>
                     </div>
                 </div>
 
-                <div ref={(el) => (sectionRefs.current[3] = el)} className="px-[12%] py-[100px] flex">
+                <div  ref={section4Ref} className="px-[12%] py-[100px] flex">
                     <div className="w-[50%]">
                         <div className="py-3 flex flex-wrap">
                             <MdBusinessCenter className="mt-[2px] mr-4"/>

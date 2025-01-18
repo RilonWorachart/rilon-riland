@@ -1,4 +1,3 @@
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
 import ItemDetail from '../components/itempage/ItemDetail'
@@ -10,7 +9,6 @@ function ItemPage() {
     return (
         <>
             <div className="min-h-screen font-plex-sans-thai">
-                <Header />
                 <ItemDetail />
                 <div className="mx-[10%] max-w-[1400px] 2xl:mx-[auto] my-[30px] px-[20px] py-[10px] border-[1px] border-lightgray rounded-md">
                     <div className="pb-4">

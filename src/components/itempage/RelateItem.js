@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ItemCard from '../ItemCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -20,7 +20,7 @@ function RelateItem() {
         // Filter out the product with the matching id
         const filteredProducts = result.filter(item => item.id !== parseInt(id));
         setProductData(filteredProducts);
-        console.log(filteredProducts);  // Logs all products except the one with the matching id
+        // console.log(filteredProducts);  // Logs all products except the one with the matching id
       })
       .catch((error) => {
         console.error('Error fetching data:', error);

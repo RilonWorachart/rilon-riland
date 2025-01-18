@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import logoW from '../images/logo-w.png'
+import { useScroll } from './ScrollContext';
 import { Link } from 'react-router-dom'
 import { FaSortDown } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import LanguageSwitcher from './LanguageSwitcher.js';
 
-function Header({ scrollToSection }) {
+function Header() {
+  const { navigateAndScroll } = useScroll();
 
   const [selectedLang, setSelectedLang] = useState('ไทย');
   const [selectedPic, setSelectedPic] = useState('https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg')
@@ -15,7 +17,6 @@ function Header({ scrollToSection }) {
 
     setIsActive(false)
   };
-
 
   const handleSelectSidebar = (lang, pic) => {
     setSelectedLang(lang);
@@ -29,19 +30,18 @@ function Header({ scrollToSection }) {
   const [isActiveLangSidebar, setIsActiveLangSidebar] = useState(false)
 
   const handleSidebar = (num) => {
-    scrollToSection(num)
+    navigateAndScroll(num)
     setIsActiveSidebar(false)
   }
-
 
 
   let [toggleMenu, setToggleMenu] = useState("home")
 
   return (
-    <div className="px-3 md:px-24 py-3 flex items-center justify-between text-[#E2B22C] fixed w-full top-0 left-0 bg-white z-50">
+    <div className="font-plex-sans-thai px-3 md:px-24 py-3 flex items-center justify-between text-[#E2B22C] fixed w-full top-0 left-0 bg-white z-50">
       <div className="">
         <Link to="/">
-          <img src={logoW} className="w-[60px] h-[45px]"></img>
+          <img src='/images/page_images/logo-w.png' className="w-[60px] h-[45px]"></img>
         </Link>
       </div>
       <div className="px-2 py-2 hidden lg:flex lg:items-between lg:justify-between w-[500px] ">
@@ -51,18 +51,23 @@ function Header({ scrollToSection }) {
           </div>
         </Link>
         <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "aboutus" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("aboutus")}>
-          <button className="hover:text-[#00007E]" onClick={() => scrollToSection(0)}>เกี่ยวกับเรา</button>
+          <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(0)}>เกี่ยวกับเรา</button>
         </div>
         <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "catelog" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("catelog")}>
-          <button className="hover:text-[#00007E]" onClick={() => scrollToSection(1)}>แคตตาล็อก</button>
+          <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(1)}>แคตตาล็อก</button>
         </div>
         <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "recommend" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("recommend")}>
-          <button className="hover:text-[#00007E]" onClick={() => scrollToSection(2)}>สินค้าขายดี</button>
+          <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(2)}>สินค้าขายดี</button>
         </div>
         <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "contactus" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("contactus")}>
-          <button className="hover:text-[#00007E]" onClick={() => scrollToSection(3)}>ติดต่อเรา</button>
+          <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(3)}>ติดต่อเรา</button>
         </div>
       </div>
+
+
+      <LanguageSwitcher />
+
+   
 
       <div className="" onMouseEnter={() => setIsActive(true)} onMouseLeave={() => setIsActive(false)}>
         <div className="relative w-[180px]">
@@ -423,7 +428,9 @@ function Header({ scrollToSection }) {
 
 
       </div>
-    </div>
+ </div>
+
+
   )
 }
 

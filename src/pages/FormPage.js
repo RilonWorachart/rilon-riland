@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link, useParams } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 
 function FormPage() {
   const { id } = useParams();
@@ -36,16 +36,105 @@ function FormPage() {
       });
   }, []);
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    tel: '',
+    line: '',
+    position: '',
+    province: '',
+    time: '',
+    message: '',
+    requirement: {
+      รายละเอียด: false,
+      ใบเสนอราคา: false,
+      วิธีแก้ปัญหาการใช้งาน: false,
+      ข้อมูลการจัดส่งสินค้า: false,
+      ทดสอบใช้สินค้าเเละบริการ: false,
+      ต้องการให้พนักงานขายติดต่อกลับ: false,
+      ตัวแทนจัดจำหน่าย: false,
+    },
+  });
+
+  const [statusMessage, setStatusMessage] = useState('');
+
+  // Handle form data changes
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === 'checkbox') {
+      // Handle checkbox values
+      setFormData({
+        ...formData,
+        requirement: {
+          ...formData.requirement,
+          [name]: checked,
+        },
+      });
+    } else {
+      // Handle text inputs
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
+  };
+
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can handle form submission (e.g., sending data to a server)
-    console.log('Form submitted');
+
+    // Prepare selected data
+    const selectedData = Object.keys(formData.requirement)
+      .filter((key) => formData.requirement[key])
+      .map((key) => key.replace('requirement', ''));
+
+    const finalFormData = {
+      ...formData,
+      selectedData: selectedData.join(', '), // Add selected checkboxes as a comma-separated string
+    };
+
+    // Use the environment variables for EmailJS IDs
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID;
+
+    // Send email using EmailJS
+    emailjs
+      .send(serviceId, templateId, finalFormData, userId)
+      .then(
+        (response) => {
+          setStatusMessage('Email sent successfully!');
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            tel: '',
+            line: '',
+            position: '',
+            province: '',
+            time: '',
+            message: '',
+            requirement: {
+              รายละเอียด: false,
+              ใบเสนอราคา: false,
+              วิธีแก้ปัญหาการใช้งาน: false,
+              ข้อมูลการจัดส่งสินค้า: false,
+              ทดสอบใช้สินค้าเเละบริการ: false,
+              ต้องการให้พนักงานขายติดต่อกลับ: false,
+              ตัวแทนจัดจำหน่าย: false,
+            },
+          });
+        },
+        (error) => {
+          setStatusMessage('Failed to send email. Please try again.');
+        }
+      );
   };
 
   return (
     <div className="min-h-screen font-plex-sans-thai">
-      <Header />
-
       <div className="mt-[70px] bg-[#E2B22C] text-white px-3 xl:px-24 py-3 md:flex md:justify-between md:items-center">
         <p className="py-1">
           <Link to="/" className="hover:text-[#00007E]">หน้าแรก</Link> <span> » </span>
@@ -80,19 +169,39 @@ function FormPage() {
                 {/* Name Field */}
                 <div className="pt-4">
                   <label htmlFor="name" className="font-semibold py-1">ชื่อผู้ติดต่อ<span className="text-[#DC3545]">*</span></label><br />
-                  <input type="text" id="name" name="name" required className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
                 {/* Email Field */}
                 <div className="pt-4">
                   <label htmlFor="email" className="font-semibold py-1">อีเมล<span className="text-[#DC3545]">*</span></label><br />
-                  <input type="email" id="email" name="email" required className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
                 {/* Company Field */}
                 <div className="pt-4">
                   <label htmlFor="company" className="font-semibold py-1">บริษัท</label><br />
-                  <input type="text" id="company" name="company" className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
                 {/* Province Select */}
@@ -117,20 +226,38 @@ function FormPage() {
                 {/* Phone Field */}
                 <div className="pt-4">
                   <label htmlFor="tel" className="font-semibold py-1">โทรศัพท์<span className="text-[#DC3545]">*</span></label><br />
-                  <input type="tel" id="tel" name="tel" pattern="^[0-9-+\s()]*$" maxLength="16" minLength="6" required className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                  <input
+                    type="tel"
+                    id="tel"
+                    name="tel"
+                    value={formData.tel}
+                    onChange={handleChange}
+                    pattern="^[0-9-+\s()]*$" maxLength="16" minLength="6" required className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
 
                 {/* Line Field */}
                 <div className="pt-4">
                   <label htmlFor="line" className="font-semibold py-1">ไลน์ไอดี</label><br />
-                  <input type="text" id="line" name="line" className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                  <input
+                    type="text"
+                    id="line"
+                    name="line"
+                    value={formData.line}
+                    onChange={handleChange}
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
                 {/* Position Field */}
                 <div className="pt-4">
                   <label htmlFor="position" className="font-semibold py-1">ตำเเหน่ง</label><br />
-                  <input type="text" id="position" name="position" className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                  <input
+                    type="text"
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleChange}
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
                 {/* Time Select */}
@@ -156,37 +283,44 @@ function FormPage() {
 
             {/* Data Checkbox Fields */}
             <div className="pt-4">
-              <label htmlFor="data" className="font-semibold py-1">ข้อมูลที่ต้องการ<span className="text-[#DC3545]">*</span></label><br />
-              <input type="checkbox" id="data1" name="data1" required className="mr-2" />
-              <label htmlFor="data1">รายละเอียด</label><br />
-              <input type="checkbox" id="data2" name="data2" required className="mr-2" />
-              <label htmlFor="data2">ใบเสนอราคา</label><br />
-              <input type="checkbox" id="data3" name="data3" required className="mr-2" />
-              <label htmlFor="data3">วิธีแก้ปัญหาการใช้งาน</label><br />
-              <input type="checkbox" id="data4" name="data4" required className="mr-2" />
-              <label htmlFor="data4">ข้อมูลการจัดส่งสินค้า</label><br />
-              <input type="checkbox" id="data5" name="data5" required className="mr-2" />
-              <label htmlFor="data5">ทดสอบใช้สินค้า/บริการ</label><br />
-              <input type="checkbox" id="data6" name="data6" required className="mr-2" />
-              <label htmlFor="data6">ต้องการให้พนักงานขายติดต่อกลับ</label><br />
-              <input type="checkbox" id="data7" name="data7" required className="mr-2" />
-              <label htmlFor="data7">ตัวแทนจัดจำหน่าย</label><br />
+              <label htmlFor="requirement" className="font-semibold py-1">ข้อมูลที่ต้องการ<span className="text-[#DC3545]">*</span></label><br />
+              <input type="checkbox" id="รายละเอียด" name="รายละเอียด" checked={formData.requirement.รายละเอียด} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="รายละเอียด">รายละเอียด</label><br />
+              <input type="checkbox" id="ใบเสนอราคา" name="ใบเสนอราคา" checked={formData.requirement.ใบเสนอราคา} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="ใบเสนอราคา">ใบเสนอราคา</label><br />
+              <input type="checkbox" id="วิธีแก้ปัญหาการใช้งาน" name="วิธีแก้ปัญหาการใช้งาน" checked={formData.requirement.วิธีแก้ปัญหาการใช้งาน} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="วิธีแก้ปัญหาการใช้งาน">วิธีแก้ปัญหาการใช้งาน</label><br />
+              <input type="checkbox" id="ข้อมูลการจัดส่งสินค้า" name="ข้อมูลการจัดส่งสินค้า" checked={formData.requirement.ข้อมูลการจัดส่งสินค้า} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="ข้อมูลการจัดส่งสินค้า">ข้อมูลการจัดส่งสินค้า</label><br />
+              <input type="checkbox" id="ทดสอบใช้สินค้าเเละบริการ" name="ทดสอบใช้สินค้าเเละบริการ" checked={formData.requirement.ทดสอบใช้สินค้าเเละบริการ} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="ทดสอบใช้สินค้าเเละบริการ">ทดสอบใช้สินค้าเเละบริการ</label><br />
+              <input type="checkbox" id="ต้องการให้พนักงานขายติดต่อกลับ" name="ต้องการให้พนักงานขายติดต่อกลับ" checked={formData.requirement.ต้องการให้พนักงานขายติดต่อกลับ} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="ต้องการให้พนักงานขายติดต่อกลับ">ต้องการให้พนักงานขายติดต่อกลับ</label><br />
+              <input type="checkbox" id="ตัวแทนจัดจำหน่าย" name="ตัวแทนจัดจำหน่าย" checked={formData.requirement.ตัวแทนจัดจำหน่าย} onChange={handleChange} required className="mr-2" />
+              <label htmlFor="ตัวแทนจัดจำหน่าย">ตัวแทนจัดจำหน่าย</label><br />
             </div>
 
             {/* Other Information */}
             <div className="pt-4">
-              <label htmlFor="other" className="font-semibold py-1">อื่นๆ</label><br />
-              <textarea id="other" name="other" rows="4" cols="50" className="border w-[100%] px-3 py-1 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+              <label htmlFor="message" className="font-semibold py-1">อื่นๆ</label><br />
+              <textarea id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="4"
+                cols="50"
+                className="border w-[100%] px-3 py-1 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
             </div>
 
             {/* Submit Button */}
             <div className="flex justify-center pt-5">
-              <Link to={`/catalog/${id}`}>
+              <Link to={`/catalog/item/${id}`}>
                 <button type="button" className="py-1 px-2 mx-2 text-[#DC3545] border border-[#DC3545] hover:text-white hover:bg-[#DC3545]  transition duration-300">ยกเลิก</button>
               </Link>
               <input type="submit" value="ส่งคำขอ" className="py-1 px-2 text-[#28A745] border border-[#28A745] hover:text-white hover:bg-[#28A745]  transition duration-300" />
             </div>
           </form>
+          {statusMessage && <p>{statusMessage}</p>}
         </div>
       </div>
 
