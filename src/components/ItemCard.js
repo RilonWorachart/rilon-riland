@@ -1,38 +1,67 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaTags } from "react-icons/fa";
 
-function ItemCard({ id, image, name, description, searchword, brand }) {
-  const [isActive, setIsActive] = useState(false)
+function ItemCard({ id, image, name, description, searchword, brand, itemType }) {
+  const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className="shadow-md relative z-0" onMouseEnter={() => setIsActive(true)} onMouseLeave={() => setIsActive(false)}>
+    <div
+      className={`shadow-md relative z-0 ${itemType === "type2" ? "flex my-2" : ""}`}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
       <Link to={`/catalog/item/${id}`}>
-        <div className="bg-black overflow-hidden">
-          <img className={`h-[100%] w-[100%] transition-transform duration-300 transform  ${isActive ? 'scale-110 opacity-75' : ''}`} src={`/images/products/${image}`} alt={name} />
+        <div className="bg-black overflow-hidden justify-center">
+          <img
+            className={`h-[100%] w-[100%] transition-transform duration-300 transform ${
+              itemType === "type2" ? "" : ""
+            } ${isActive ? 'scale-110 opacity-75' : ''}`}
+            src={`/images/products/${image}`}
+            alt={name}
+          />
         </div>
       </Link>
 
-      <div className="px-5 py-5">
+      <div className={`px-5 py-5 ${itemType === "type2" ? "w-[70%]" : ""}`}>
         <div className="pb-[50px]">
-          <p className="text-[28px] text-[#E5B22C]">{name}</p>
-          <p className="text-[18px] py-2">{brand} </p>
+          <p className="text-[28px] text-[#E5B22C] truncate">{name}</p>
+          <p className="text-[18px] py-2 truncate">{brand}</p>
 
-          <div className={`w-full flex items-center 
-                transition-all duration-1000 
-                ${isActive ? 'max-h-[500px]' : 'max-h-0'}`}>
-            <span className={`text-[14px] ${isActive ? 'text-opacity-100 text-[#E5B22C]' : 'max-h-0 text-opacity-0 text-[#E5B22C]'}`}>{description} </span>
+          {/* Sliding effect only for type1 */}
+          <div
+            className={`w-full flex items-center transition-all duration-500 overflow-hidden ${
+              itemType === "type1"
+                ? isActive
+                  ? "max-h-[200px]"  // adjust max-height for sliding text
+                  : "max-h-0"
+                : "max-h-[1000px]" // for type2, the description stays visible
+            }`}
+            style={{
+              transition: 'max-height 0.5s ease-out',
+            }}
+          >
+            <p
+              className={`text-[14px] text-[#E5B22C] line-clamp-2 ${
+                itemType === "type2" ? "w-[100%]" : ""
+              }`}
+            >
+              {description}
+            </p>
           </div>
         </div>
 
-        <div className="absolute bottom-[10px] left-0 right-0 px-4">
-          <div className="flex justify-between items-center">
-            <Link to={`/catalog/item/${id}`} className="text-[#E5B22C] py-[2px] flex items-center w-[50%]">
+        <div className={`${itemType === "type2" ? "items-center" : "absolute bottom-[10px] left-0 right-0 px-4"}`}>
+          <div className={`${itemType === "type2" ? "" : "flex justify-between items-center"}`}>
+            <Link
+              to={`/catalog/item/${id}`}
+              className={`text-[#E5B22C] py-[2px] flex items-center ${itemType === "type2" ? "w-[100%] my-2" : "w-[40%]"}`}
+            >
               <FaTags />
-              <p className="text-[14px] pl-2">{searchword}</p>
+              <p className="text-[14px] pl-2 truncate mr-1">{searchword}</p>
             </Link>
             <Link to={`/catalog/item/${id}`}>
-              <button className="bg-[#E2B22C] border text-white ml-1 py-1 px-4 rounded-full hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300">
+              <button className="overflow-hidden truncate bg-[#E2B22C] border text-white py-1 px-4 rounded-full hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300">
                 ดูรายละเอียด
               </button>
             </Link>
@@ -40,7 +69,10 @@ function ItemCard({ id, image, name, description, searchword, brand }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ItemCard
+export default ItemCard;
+
+
+

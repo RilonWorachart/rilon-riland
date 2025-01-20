@@ -1,13 +1,13 @@
 import React, {useEffect, useRef} from 'react'
-import Header from '../components/Header'
+import Header from '../components/header/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
 import RecommendProductList from '../components/homepage/RecommendProductList'
-import YouTubeEmbed from '../components/YoutubeEmbed'
+import YouTubeEmbed from '../components/homepage/YoutubeEmbed'
 import Contact from '../components/Contact'
 import QRcodeComponent from '../components/QRcodeComponent'
 import ItemList from '../components/ItemList'
-import { useScroll } from '../components/ScrollContext';
+import { useScroll } from '../components/header/ScrollContext';
 import { FaFacebookF, FaGlobe, FaInstagram, FaLine, FaPhoneAlt, FaYoutube, FaMapMarkerAlt} from "react-icons/fa";
 import { MdBusinessCenter, MdMail } from "react-icons/md";
 
@@ -52,10 +52,10 @@ function HomePage() {
                         <a href="https://page.line.me/156vctty?openQrModal=true" className="bg-[#02B92E] p-1.5 mr-2  text-white rounded-full hover:bg-[#49D249]">
                             <FaLine />
                         </a>
-                        <a href="https://www.facebook.com/rilonriland/posts/1013050012170754/" className="bg-[#1773EA] p-1.5 mr-2 text-white rounded-full hover:bg-[#5A9DF3]">
+                        <a href="https://www.facebook.com/profile.php?id=61555700229121" className="bg-[#1773EA] p-1.5 mr-2 text-white rounded-full hover:bg-[#5A9DF3]">
                             <FaFacebookF />
                         </a>
-                        <a href="https://www.instagram.com/rilonthailand/" className="bg-[#BB5287] p-1.5 mr-2 text-white rounded-full hover:bg-[#E9768C]">
+                        <a href="https://www.instagram.com/rilon_thailand/" className="bg-[#BB5287] p-1.5 mr-2 text-white rounded-full hover:bg-[#E9768C]">
                             <FaInstagram />
                         </a>
                         <a href="https://www.youtube.com/@rilon_thailand" className="bg-[#F60000] p-1.5 mr-2 text-white rounded-full hover:bg-[#FC4949]">
@@ -272,7 +272,7 @@ function HomePage() {
                     </div>
                 </div>
 
-                <div  ref={section4Ref} className="px-[12%] py-[100px] flex">
+                <div  ref={section4Ref} className="px-[12%] py-[100px] flex justify-between">
                     <div className="w-[50%]">
                         <div className="py-3 flex flex-wrap">
                             <MdBusinessCenter className="mt-[2px] mr-4"/>
@@ -280,8 +280,9 @@ function HomePage() {
                         </div>
                         <Contact />
                     </div>
-                    <div className="flex items-center mx-[auto]" >
-                        <button className="bg-[#E2B22C] text-white py-1 px-6 rounded-full hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300">นำทาง</button>
+                    <div className="mx-[auto] my-[auto] w-[45%]" >
+                        <iframe className="w-[400px] h-[500px]" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15493.791027039693!2d100.4626156!3d13.8721544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29aca882d796f%3A0xed3662f97b98ac95!2sRILON!5e0!3m2!1sth!2sth!4v1679737367033!5m2!1sth!2sth" ></iframe>
+                        {/* <button className="bg-[#E2B22C] text-white py-1 px-6 rounded-full hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300">นำทาง</button> */}
                     </div>
                 </div>
                 <Footer/>

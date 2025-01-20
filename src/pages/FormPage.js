@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
 import { Link, useParams } from 'react-router-dom';
 import emailjs from 'emailjs-com';
@@ -37,13 +37,15 @@ function FormPage() {
   }, []);
 
   const [formData, setFormData] = useState({
+    product: '', // initially empty, will be updated once productData is fetched
     name: '',
     email: '',
     company: '',
     tel: '',
     line: '',
+    fax: '',
     position: '',
-    province: '',
+    province: 'กรุงเทพมหานคร',
     time: '',
     message: '',
     requirement: {
@@ -59,61 +61,84 @@ function FormPage() {
 
   const [statusMessage, setStatusMessage] = useState('');
 
+  useEffect(() => {
+    if (productData.name) {
+      setFormData(prevData => ({
+        ...prevData,
+        product: productData.name, // Update product field when productData is fetched
+      }));
+    }
+  }, [productData]); // This effect runs when productData changes
+
   // Handle form data changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
+  
     if (type === 'checkbox') {
-      // Handle checkbox values
+      // Handle checkbox values inside 'requirement' object
       setFormData({
         ...formData,
         requirement: {
           ...formData.requirement,
-          [name]: checked,
+          [name]: checked, // Set the checkbox as checked or unchecked
         },
       });
     } else {
-      // Handle text inputs
+      // Handle other form inputs (e.g., text, select, etc.)
       setFormData({
         ...formData,
-        [name]: value,
+        [name]: value, // Update the field directly in the formData
       });
     }
   };
+  
 
-  // Handle form submission
+  const requirementLabels = {
+    รายละเอียด: 'รายละเอียด',
+    ใบเสนอราคา: 'ใบเสนอราคา',
+    วิธีแก้ปัญหาการใช้งาน: 'วิธีแก้ปัญหาการใช้งาน',
+    ข้อมูลการจัดส่งสินค้า: 'ข้อมูลการจัดส่งสินค้า',
+    ทดสอบใช้สินค้าเเละบริการ: 'ทดสอบใช้สินค้าเเละบริการ',
+    ต้องการให้พนักงานขายติดต่อกลับ: 'ต้องการให้พนักงานขายติดต่อกลับ',
+    ตัวแทนจัดจำหน่าย: 'ตัวแทนจัดจำหน่าย',
+  };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     // Prepare selected data
     const selectedData = Object.keys(formData.requirement)
-      .filter((key) => formData.requirement[key])
-      .map((key) => key.replace('requirement', ''));
-
+      .filter((key) => formData.requirement[key]) // Filter only checked options
+      .map((key) => requirementLabels[key]); // Map to human-readable labels
+  
+    // Ensure selectedData is a comma-separated string
+    const selectedDataString = selectedData.join(', ');
+  
     const finalFormData = {
       ...formData,
-      selectedData: selectedData.join(', '), // Add selected checkboxes as a comma-separated string
+      requirement: selectedDataString, // Pass the selected requirements string
     };
-
-    // Use the environment variables for EmailJS IDs
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const userId = process.env.REACT_APP_EMAILJS_USER_ID;
-
+    
+    console.log('Final Form Data:', finalFormData); // This will show the updated data with 'requirement'
     // Send email using EmailJS
     emailjs
-      .send(serviceId, templateId, finalFormData, userId)
+      .send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, finalFormData, process.env.REACT_APP_EMAILJS_USER_ID)
       .then(
         (response) => {
           setStatusMessage('Email sent successfully!');
+  
+          // Reset the form data but keep the product name as productData.name
           setFormData({
+            product: productData.name, // Keep the product name unchanged
             name: '',
             email: '',
             company: '',
             tel: '',
             line: '',
+            fax: '',
             position: '',
-            province: '',
+            province: 'กรุงเทพมหานคร',
             time: '',
             message: '',
             requirement: {
@@ -129,9 +154,13 @@ function FormPage() {
         },
         (error) => {
           setStatusMessage('Failed to send email. Please try again.');
+          console.error('Error sending email:', error);
         }
       );
   };
+  
+
+
 
   return (
     <div className="min-h-screen font-plex-sans-thai">
@@ -166,17 +195,27 @@ function FormPage() {
             <div className="md:flex">
 
               <div className="md:w-[50%] md:pr-[10px]">
-                {/* Name Field */}
                 <div className="pt-4">
-                  <label htmlFor="name" className="font-semibold py-1">ชื่อผู้ติดต่อ<span className="text-[#DC3545]">*</span></label><br />
+                  <label htmlFor="product" className="font-semibold py-1">สินค้าที่สนใจ<span className="text-[#DC3545]">*</span></label><br />
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    id="product"
+                    name="product"
+                    value={productData.name}
                     required
                     className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                </div>
+
+                {/* Telephone Field */}
+                <div className="pt-4">
+                  <label htmlFor="tel" className="font-semibold py-1">โทรศัพท์<span className="text-[#DC3545]">*</span></label><br />
+                  <input
+                    type="tel"
+                    id="tel"
+                    name="tel"
+                    value={formData.tel}
+                    onChange={handleChange}
+                    maxLength="16" minLength="6" required className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
                 {/* Email Field */}
@@ -210,7 +249,13 @@ function FormPage() {
                   {loading ? (
                     <p>Loading provinces...</p>
                   ) : (
-                    <select name="province" id="province" className="border w-[100%] py-1 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300">
+                    <select
+                      name="province"
+                      id="province"
+                      className="border w-[100%] py-1 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300"
+                      value={formData.province} // Ensure it binds the value correctly
+                      onChange={handleChange}
+                    >
                       {provinceOptions.map((option, index) => (
                         <option key={index} value={option.value}>
                           {option.label}
@@ -223,16 +268,17 @@ function FormPage() {
               </div>
 
               <div className="md:w-[50%] md:pl-[10px]">
-                {/* Phone Field */}
+                {/* Name Field */}
                 <div className="pt-4">
-                  <label htmlFor="tel" className="font-semibold py-1">โทรศัพท์<span className="text-[#DC3545]">*</span></label><br />
+                  <label htmlFor="name" className="font-semibold py-1">ชื่อผู้ติดต่อ<span className="text-[#DC3545]">*</span></label><br />
                   <input
-                    type="tel"
-                    id="tel"
-                    name="tel"
-                    value={formData.tel}
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    pattern="^[0-9-+\s()]*$" maxLength="16" minLength="6" required className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                    required
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
 
@@ -244,6 +290,17 @@ function FormPage() {
                     id="line"
                     name="line"
                     value={formData.line}
+                    onChange={handleChange}
+                    className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
+                </div>
+
+                <div className="pt-4">
+                  <label htmlFor="fax" className="font-semibold py-1">แฟกซ์</label><br />
+                  <input
+                    type="text"
+                    id="fax"
+                    name="fax"
+                    value={formData.fax}
                     onChange={handleChange}
                     className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
@@ -260,10 +317,17 @@ function FormPage() {
                     className="border w-[100%] py-1.5 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300" />
                 </div>
 
+
                 {/* Time Select */}
                 <div className="pt-4">
                   <label htmlFor="time" className="font-semibold py-1">ระยะเวลาที่ต้องการใช้สินค้า</label><br />
-                  <select name="time" id="time" className="border w-[100%] py-1 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300">
+                  <select
+                    name="time"
+                    id="time"
+                    value={formData.time} // Ensure it's correctly bound
+                    onChange={handleChange}
+                    className="border w-[100%] py-1 pl-3 my-1 rounded-md focus:outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500/50 transition duration-300"
+                  >
                     <option value="ไม่ระบุ">เลือก</option>
                     <option value="ต้องการใช้ทันที">ต้องการใช้ทันที</option>
                     <option value="ภายใน 2 วัน">ภายใน 2 วัน</option>
@@ -284,21 +348,22 @@ function FormPage() {
             {/* Data Checkbox Fields */}
             <div className="pt-4">
               <label htmlFor="requirement" className="font-semibold py-1">ข้อมูลที่ต้องการ<span className="text-[#DC3545]">*</span></label><br />
-              <input type="checkbox" id="รายละเอียด" name="รายละเอียด" checked={formData.requirement.รายละเอียด} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="รายละเอียด" name="รายละเอียด" checked={formData.requirement.รายละเอียด} onChange={handleChange} className="mr-2" />
               <label htmlFor="รายละเอียด">รายละเอียด</label><br />
-              <input type="checkbox" id="ใบเสนอราคา" name="ใบเสนอราคา" checked={formData.requirement.ใบเสนอราคา} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="ใบเสนอราคา" name="ใบเสนอราคา" checked={formData.requirement.ใบเสนอราคา} onChange={handleChange} className="mr-2" />
               <label htmlFor="ใบเสนอราคา">ใบเสนอราคา</label><br />
-              <input type="checkbox" id="วิธีแก้ปัญหาการใช้งาน" name="วิธีแก้ปัญหาการใช้งาน" checked={formData.requirement.วิธีแก้ปัญหาการใช้งาน} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="วิธีแก้ปัญหาการใช้งาน" name="วิธีแก้ปัญหาการใช้งาน" checked={formData.requirement.วิธีแก้ปัญหาการใช้งาน} onChange={handleChange} className="mr-2" />
               <label htmlFor="วิธีแก้ปัญหาการใช้งาน">วิธีแก้ปัญหาการใช้งาน</label><br />
-              <input type="checkbox" id="ข้อมูลการจัดส่งสินค้า" name="ข้อมูลการจัดส่งสินค้า" checked={formData.requirement.ข้อมูลการจัดส่งสินค้า} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="ข้อมูลการจัดส่งสินค้า" name="ข้อมูลการจัดส่งสินค้า" checked={formData.requirement.ข้อมูลการจัดส่งสินค้า} onChange={handleChange} className="mr-2" />
               <label htmlFor="ข้อมูลการจัดส่งสินค้า">ข้อมูลการจัดส่งสินค้า</label><br />
-              <input type="checkbox" id="ทดสอบใช้สินค้าเเละบริการ" name="ทดสอบใช้สินค้าเเละบริการ" checked={formData.requirement.ทดสอบใช้สินค้าเเละบริการ} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="ทดสอบใช้สินค้าเเละบริการ" name="ทดสอบใช้สินค้าเเละบริการ" checked={formData.requirement.ทดสอบใช้สินค้าเเละบริการ} onChange={handleChange} className="mr-2" />
               <label htmlFor="ทดสอบใช้สินค้าเเละบริการ">ทดสอบใช้สินค้าเเละบริการ</label><br />
-              <input type="checkbox" id="ต้องการให้พนักงานขายติดต่อกลับ" name="ต้องการให้พนักงานขายติดต่อกลับ" checked={formData.requirement.ต้องการให้พนักงานขายติดต่อกลับ} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="ต้องการให้พนักงานขายติดต่อกลับ" name="ต้องการให้พนักงานขายติดต่อกลับ" checked={formData.requirement.ต้องการให้พนักงานขายติดต่อกลับ} onChange={handleChange} className="mr-2" />
               <label htmlFor="ต้องการให้พนักงานขายติดต่อกลับ">ต้องการให้พนักงานขายติดต่อกลับ</label><br />
-              <input type="checkbox" id="ตัวแทนจัดจำหน่าย" name="ตัวแทนจัดจำหน่าย" checked={formData.requirement.ตัวแทนจัดจำหน่าย} onChange={handleChange} required className="mr-2" />
+              <input type="checkbox" id="ตัวแทนจัดจำหน่าย" name="ตัวแทนจัดจำหน่าย" checked={formData.requirement.ตัวแทนจัดจำหน่าย} onChange={handleChange} className="mr-2" />
               <label htmlFor="ตัวแทนจัดจำหน่าย">ตัวแทนจัดจำหน่าย</label><br />
             </div>
+
 
             {/* Other Information */}
             <div className="pt-4">

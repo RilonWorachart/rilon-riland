@@ -58,12 +58,12 @@ function Contact() {
                             <FaLine />
                         </div>
                     </a>
-                    <a href="https://www.facebook.com/rilonriland/posts/1013050012170754/">
+                    <a href="https://www.facebook.com/profile.php?id=61555700229121">
                         <div className="bg-[#1773EA] p-1.5 mr-2 text-white rounded-full hover:bg-[#5A9DF3]">
                             <FaFacebookF />
                         </div>
                     </a>
-                    <a href="https://www.instagram.com/rilonthailand/">
+                    <a href="https://www.instagram.com/rilon_thailand/">
                         <div className="bg-[#BB5287] p-1.5 mr-2 text-white rounded-full hover:bg-[#E9768C]">
                             <FaInstagram />
                         </div>

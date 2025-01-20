@@ -76,7 +76,7 @@ function RelateItem() {
               return (
                 <SwiperSlide key={item.id}>
                   <ItemCard className="z-10" key={item.id} image={item.image} id={item.id} name={item.name} category={item.category}
-                    description={item.description} searchword={item.searchword} brand={item.brand}
+                    description={item.description} searchword={item.searchword} brand={item.brand}  itemType={"type1"}
                   />
 
                 </SwiperSlide>

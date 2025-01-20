@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { IoIosArrowUp } from "react-icons/io";
-import { FaShareAltSquare, FaRegAddressCard, FaFacebookSquare, FaWhatsapp, FaLine, FaPinterest, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
-import { FaSquareXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { FaShareAltSquare, FaRegAddressCard, FaFacebookSquare,FaYoutube, FaLine, FaPhoneAlt, FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 function FixedButton() {
@@ -52,7 +51,7 @@ function FixedButton() {
                 >
                     <FaLine />
                 </a>
-                <a href="https://www.facebook.com/rilonriland/posts/1013050012170754/"
+                <a href="https://www.facebook.com/profile.php?id=61555700229121"
                     className={`fixed left-[20px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-full shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isContactActive ? 'bottom-[165px]' : 'bottom-[65px]'}`}
                 >
                     <FaFacebookSquare className="" />
@@ -78,33 +77,23 @@ function FixedButton() {
                 >
                     <FaLine />
                 </a>
-                <a href="https://www.facebook.com/rilonriland/posts/1013050012170754/"
+                <a href="https://www.facebook.com/profile.php?id=61555700229121"
                     className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[120px]' : 'left-[20px]'}`}
                 >
                     <FaFacebookSquare className="" />
                 </a>
-                <a href=""
+                <a href="https://www.instagram.com/rilon_thailand/"
                     className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[170px]' : 'left-[20px]'}`}
                 >
-                    <FaSquareXTwitter className="" />
+                    <FaInstagram className="" />
                 </a>
-                <a href=""
+                <a href="https://www.youtube.com/@rilon_thailand"
                     className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[220px]' : 'left-[20px]'}`}
                 >
-                    <FaLinkedinIn className="" />
-                </a>
-                <a href=""
-                    className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[270px]' : 'left-[20px]'}`}
-                >
-                    <FaPinterest className="" />
-                </a>
-                <a href=""
-                    className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[320px]' : 'left-[20px]'}`}
-                >
-                    <FaWhatsapp className="" />
+                    <FaYoutube className="" />
                 </a>
                 <a href="mailto:janenyrilon_jingwei@hotmail.com"
-                    className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[370px]' : 'left-[20px]'}`}
+                    className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[270px]' : 'left-[20px]'}`}
                 >
                     <MdOutlineEmail className="" />
                 </a>

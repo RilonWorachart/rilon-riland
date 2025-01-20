@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { FaFacebook, FaWhatsapp, FaLine, FaPinterest } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp, FaLine, FaYoutube, FaInstagram } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn, } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import QRcodeComponent from '../QRcodeComponent'
@@ -45,8 +45,8 @@ function ItemDetail() {
                 <SearchKeyButton />
             </div>
 
-            <div className="mx-[10%] max-w-[1400px] 2xl:mx-[auto] my-[30px] px-[15px] py-[15px] border-[1px] border-lightgray rounded-md lg:flex">
-                <img className=" w-[100%] lg:w-[35%] border rounded-md lg:mr-[40px] aspect-[1/1]" src={`/images/products/${productData.image}`} alt={productData.name} />
+            <div className="mx-[10%] max-w-[1400px] 2xl:mx-[auto] my-[30px] px-[15px] py-[15px] border-[1px] border-lightgray rounded-md md:flex">
+                <img className=" w-[100%] md:w-[35%] md:h-[100%]  border rounded-md md:mr-[40px]" src={`/images/products/${productData.image}`} alt={productData.name} />
                 <div className="lg:w-[70%]">
                     <p className="text-[32px] pt-4">{productData.name}</p>
                     <p className="py-1">
@@ -61,18 +61,28 @@ function ItemDetail() {
                             <button className="bg-[#E2B22C] border text-white py-2 px-6 mr-4 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">ขอรายละเอียด</button>
                         </Link>
                         <Link to={`/catalog/item/${id}/request-form`}>
-                            <button className="bg-[#E2B22C] border text-white py-2 px-6 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">ขอไปเสนอราคา</button>
+                            <button className="bg-[#E2B22C] border text-white py-2 px-6 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">ขอใบเสนอราคา</button>
                         </Link>
                     </div>
                     <hr></hr>
                     <p className="py-2">หมวดหมู่</p>
                     <div className="flex">
-                        <Link to={`/catalog`}>
-                            <button className="bg-[#E2B22C] border text-white text-[13px] py-1 px-4 mr-2 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">{productData.category}</button>
-                        </Link>
+                        {
+                            productData?.category?.length > 0 ? (
+                                productData.category.map((data, index) => (
+                                    <Link key={index} to={`/catalog/keyword/${data}`}>
+                                        <button className="bg-[#E2B22C] border text-white text-[13px] py-1 px-4 mr-2 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">
+                                            {data}
+                                        </button>
+                                    </Link>
+                                ))
+                            ) : (
+                                <p>No categories available</p>  // Fallback if no categories are available
+                            )
+                        }
                     </div>
                     <p className="py-2">คำค้นหา</p>
-                    <Link to={`/catalog`}>
+                    <Link to={`/catalog/keyword/${productData.searchword}`}>
                         <button className="bg-[#E2B22C] border text-white text-[13px] mb-2 py-1 px-4 mr-4 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">{productData.searchword}</button>
                     </Link>
                     <div>
@@ -87,29 +97,19 @@ function ItemDetail() {
                                 <FaLine />
                             </div>
                         </a>
-                        <a href="https://www.facebook.com/rilonriland/posts/1013050012170754/">
+                        <a href="https://www.facebook.com/profile.php?id=61555700229121">
                             <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#1773EA] text-[#1773EA] rounded-full hover:bg-[#1773EA] hover:text-white transition duration-300">
                                 <FaFacebook />
                             </div>
                         </a>
                         <a href="https://www.instagram.com/rilonthailand/">
-                            <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#000000] text-[#000000] rounded-full hover:bg-[#000000] hover:text-white transition duration-300">
-                                <FaXTwitter />
+                            <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#BB5287] text-[#BB5287] rounded-full hover:bg-[#BB5287] hover:text-white transition duration-300">
+                                <FaInstagram />
                             </div>
                         </a>
                         <a href="https://www.youtube.com/@rilon_thailand">
-                            <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#0E76A8] text-[#0E76A8] rounded-full hover:bg-[#0E76A8] hover:text-white transition duration-300">
-                                <FaLinkedinIn />
-                            </div>
-                        </a>
-                        <a href="https://www.rilon-riland.com/">
                             <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#E60023] text-[#E60023] rounded-full hover:bg-[#E60023] hover:text-white transition duration-300">
-                                <FaPinterest />
-                            </div>
-                        </a>
-                        <a href="https://www.rilon-riland.com/">
-                            <div className="p-1.5 mr-1.5 text-[18px] bg-white border border-[#25D366] text-[#25D366] rounded-full hover:bg-[#25D366] hover:text-white transition duration-300">
-                                <FaWhatsapp />
+                                <FaYoutube />
                             </div>
                         </a>
                         <a href="mailto:janenyrilon_jingwei@hotmail.com">

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
 import ItemCard from '../components/ItemCard'
@@ -20,7 +19,8 @@ function CatalogKeywordPage() {
         const foundProducts = key
           ? result.filter(item => 
               item.searchword.toLowerCase().includes(key.toLowerCase()) ||
-              item.brand.toLowerCase().includes(key.toLowerCase())
+              item.brand.toLowerCase().includes(key.toLowerCase())  ||
+              item.category.some(category => category.toLowerCase().includes(key.toLowerCase())) // Check if any category matches the key
             )
           : result;  // if key is empty, return all products
   

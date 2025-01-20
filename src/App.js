@@ -7,9 +7,9 @@ import ItemPage from "./pages/ItemPage.js";
 import FormPage from "./pages/FormPage.js";
 import CatalogKeywordPage from "./pages/CatalogKeywordPage.js";
 import FixedButton from "./components/FixedButton.js";
-import Header from "./components/Header.js";
+import Header from "./components/header/Header.js";
 import ScrollToTop from "./utils/ScrollToTop.js";
-import { ScrollProvider } from './components/ScrollContext';
+import { ScrollProvider } from './components/header/ScrollContext.js';
 
 
 function App() {
