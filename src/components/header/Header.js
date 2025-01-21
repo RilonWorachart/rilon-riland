@@ -3,7 +3,7 @@ import { useScroll } from './ScrollContext.js';
 import { Link } from 'react-router-dom'
 import { FaSortDown } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import LanguageSwitcher from './LanguageSwitcher.js';
+// import LanguageSwitcher from './LanguageSwitcher.js';
 import Sidebar from './Sidebar.js';
 import { useTranslation } from 'react-i18next';
 
@@ -34,27 +34,27 @@ function Header() {
     <div className="font-plex-sans-thai px-3 md:px-24 py-3 flex items-center justify-between text-[#E2B22C] fixed w-full top-0 left-0 bg-white z-50">
       <div className="w-[20%]">
         <Link to="/">
-          <img src='/images/page_images/logo-w.png' className="w-[60px] h-[45px]"></img>
+          <img src='/images/page_images/logo-w.png' alt="logo" className="w-[60px] h-[45px]"></img>
         </Link>
       </div>
 
 
       <div className="px-2 py-2 hidden lg:flex lg:items-between lg:justify-between w-[50%] max-w-[500px] ">
         <Link to="/">
-          <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "home" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("home")}>
+          <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu === "home" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("home")}>
             <button className="hover:text-[#00007E]" >{t('header.homepage')}</button>
           </div>
         </Link>
-        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "aboutus" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("aboutus")}>
+        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu === "aboutus" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("aboutus")}>
           <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(0)}>{t('header.aboutme')}</button>
         </div>
-        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "catelog" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("catelog")}>
+        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu === "catelog" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("catelog")}>
           <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(1)}>{t('header.catelog')}</button>
         </div>
-        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "recommend" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("recommend")}>
+        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu === "recommend" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("recommend")}>
           <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(2)}>{t('header.recommend')}</button>
         </div>
-        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu == "contactus" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("contactus")}>
+        <div className={`border-b-2 hover:text-[#00007E] hover:border-b-2 hover:border-[#E2B22C] ${toggleMenu === "contactus" ? "border-[#E2B22C]" : "border-white"}`} onClick={() => setToggleMenu("contactus")}>
           <button className="hover:text-[#00007E]" onClick={() => navigateAndScroll(3)}>{t('header.contactus')}</button>
         </div>
       </div>
@@ -76,7 +76,7 @@ function Header() {
                 <div className="mt-10 w-[160px] bg-white shadow-2xl">
                   <div
                     className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                    onClick={() => handleSelect('Thai', 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg','th')}
+                    onClick={() => handleSelect('Thai', 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg', 'th')}
                   >
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg"
@@ -88,7 +88,7 @@ function Header() {
 
                   <div
                     className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                    onClick={() => handleSelect('English', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png','en')}
+                    onClick={() => handleSelect('English', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png', 'en')}
                   >
                     <img
                       src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png"
@@ -97,11 +97,8 @@ function Header() {
                     />
                     {t('header.langeng')}
                   </div>
-
                 </div>
-
               </div>
-
             )
           }
         </div>

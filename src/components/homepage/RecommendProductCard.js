@@ -1,13 +1,12 @@
 import { useState } from 'react'
 
-function RecommendProductCard({ id, image, name }) {
-
+function RecommendProductCard({ image, name }) {
     const [isActive, setIsActive] = useState(false)
 
     return (
-        <div className={`z-20 relative mx-[40px] flex justify-center ${isActive ? 'bg-gradient-to-r from-emerald-900 to-red-900' : ''}`}  onMouseEnter={() => setIsActive(true)} onMouseLeave={() => setIsActive(false)}>
+        <div className={`z-20 relative mx-[40px] flex justify-center ${isActive ? 'bg-gradient-to-r from-emerald-900 to-red-900' : ''}`} onMouseEnter={() => setIsActive(true)} onMouseLeave={() => setIsActive(false)}>
             <img
-                className={`h-[100%] w-[50%] hover:opacity-75 transition-transform duration-300 transform  ${isActive ? ' opacity-75' : ''}`} 
+                className={`h-[100%] w-[50%] hover:opacity-75 transition-transform duration-300 transform  ${isActive ? ' opacity-75' : ''}`}
                 src={`/images/recommendproducts/${image}`}
                 alt={name}
             />
@@ -22,7 +21,6 @@ function RecommendProductCard({ id, image, name }) {
                 )
             }
         </div>
-
     )
 }
 

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import Swal from 'sweetalert2'
 
 function FormPage() {
   const { id } = useParams();
@@ -76,7 +77,6 @@ function FormPage() {
     },
   });
 
-  const [statusMessage, setStatusMessage] = useState('');
 
   useEffect(() => {
     if (productData.name) {
@@ -143,8 +143,6 @@ function FormPage() {
       .send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, finalFormData, process.env.REACT_APP_EMAILJS_USER_ID)
       .then(
         (response) => {
-          setStatusMessage('Email sent successfully!');
-  
           // Reset the form data but keep the product name as productData.name
           setFormData({
             product: productData.name, // Keep the product name unchanged
@@ -168,10 +166,21 @@ function FormPage() {
               ตัวแทนจัดจำหน่าย: false,
             },
           });
+          Swal.fire({
+            title: 'Success!',
+            text: 'Form submitted successfully!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
         },
         (error) => {
-          setStatusMessage('Failed to send email. Please try again.');
           console.error('Error sending email:', error);
+          Swal.fire({
+            title: 'Oops!',
+            text: 'Failed to submit the form. Please check your connection or try again later.',
+            icon: 'error',   // Error icon
+            confirmButtonText: 'Okay'
+          });
         }
       );
   };
@@ -400,7 +409,6 @@ function FormPage() {
               <input type="submit" value={t('formpage.p40')} className="py-1 px-2 text-[#28A745] border border-[#28A745] hover:text-white hover:bg-[#28A745]  transition duration-300" />
             </div>
           </form>
-          {statusMessage && <p>{statusMessage}</p>}
         </div>
       </div>
 
