@@ -1,9 +1,12 @@
 import React from 'react'
 import { FaInstagram, FaLine, FaFacebookSquare, FaYoutubeSquare } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 
 
 function Footer() {
+    const { t } = useTranslation();
+
     return (
         <>
             <div class="px-2 py-8 bg-[#E2B22C] text-white text-center">
@@ -11,9 +14,9 @@ function Footer() {
                     <img src='/images/page_images/logo-w.png' className="w-[75px]"></img>
                 </div>
                 <div className="pb-2">
-                    <p className="text-[20px] font-bold">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</p>
-                    <p>110/61,91/1 ตำบลไทรม้า อำเภอเมืองนนทบุรี นนทบุรี 11000</p>
-                    <p>จันทร์ - เสาร์ เวลา 08:00 - 17:30 น. สั่งของได้ตลอด 24 ชั่วโมง</p>
+                    <p className="text-[20px] font-bold">{t('footer.p1')}</p>
+                    <p>{t('footer.p2')}</p>
+                    <p>{t('footer.p3')}</p>
                 </div>
                 <div className="flex justify-center text-[26px] py-3">
                     <a href="https://media.yellowpages.co.th/yellowpages/line/th/52336657/672d8afba717d.png?itok=6785dd8b">
@@ -30,12 +33,12 @@ function Footer() {
                     </a>
                 </div>
                 <div className="py-2">
-                    <p>อีเมล :
+                    <p>{t('footer.p5')}
                         <a href="" className="hover:text-[#00007E]"> janenyrilon_jingwei@hotmail.com</a>,
                         <a href="" className="hover:text-[#00007E]"> worachart_soi@hotmail.com</a>,
                         <a href="" className="hover:text-[#00007E]"> worachartgroup@gmail.com</a>
                     </p>
-                    <p>โทรศัพท์ :
+                    <p>{t('footer.p6')}
                         <a href="" className="hover:text-[#00007E]">
                             08-1694-5000
                         </a>,
@@ -49,7 +52,7 @@ function Footer() {
                 </div>
             </div>
             <div class="bg-white text-center py-2 text-[12px]">
-                <p>© 2568 <a href="" className="text-[#E2B22C] hover:text-[#00007E]">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</a></p>
+                <p>© 2568 <a href="" className="text-[#E2B22C] hover:text-[#00007E]">{t('footer.p4')}</a></p>
                 <p>All rights reserved.</p>
             </div>
         </>

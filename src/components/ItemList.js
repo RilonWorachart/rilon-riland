@@ -2,18 +2,27 @@ import React, { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 import { CgMenuGridR } from "react-icons/cg";
 import { TfiMenuAlt } from "react-icons/tfi";
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 function AllProduct() {
+  const { t } = useTranslation();
 
   const [productData, setProductData] = useState([])
 
   useEffect(() => {
-    fetch('allproduct.json')
+    fetch(`/locales/${i18next.language}/products.json`)
       .then((response) => response.json())
       .then((result) => {
-        setProductData(result)
+        // Convert the object into an array of products
+        const productsArray = Object.values(result);
+        setProductData(productsArray);
       })
-  }, [])
+      .catch((error) => {
+        console.error('Error fetching product data:', error);
+      });
+  }, [t]); // Empty dependency array means this runs once when the component mounts
+
 
   const [itemType, setItemType] = useState("type1")
 

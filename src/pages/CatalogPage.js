@@ -2,11 +2,13 @@ import Footer from '../components/Footer'
 import CategorySearch from '../components/CategorySearch'
 import ItemList from '../components/ItemList'
 import SearchKeyButton from '../components/SearchKeyButton'
-
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 
 function CatalogPage() {
+  const { t } = useTranslation();
+
 
   return (
     <>
@@ -14,12 +16,12 @@ function CatalogPage() {
         <div className="mt-[70px] bg-[#E2B22C] text-white px-3 xl:px-24 py-3 ">
           <p className="py-1">
             <Link to="/">
-              <span className="hover:text-[#00007E]">หน้าแรก</span>
+              <span className="hover:text-[#00007E]">{t('categorypage.p1')}</span>
             </Link>
             <span> » </span>
-            <span className="">แคตตาล็อกออนไลน์</span>
+            <span className="">{t('categorypage.p2')}</span>
           </p>
-          <h2 className="py-1 text-[20px]">เครื่องเชื่อมไรล่อน วรชาติกรุ๊ป</h2>
+          <h2 className="py-1 text-[20px]">{t('categorypage.p3')}</h2>
         </div>
 
 

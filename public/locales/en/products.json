@@ -1,0 +1,170 @@
+{
+    "product1": {
+        "id": 1,
+        "name": "Which inverter welder brand is the best?",
+        "description": "Which inverter welder brand is the best? The MEGMEET Ehave CM 500H/500/400/350/250 is an intelligent welder for CO2 / MAG / MMA...",
+        "category": ["Metal Welding", "Welding Equipment and Tools"],
+        "image": "1_weldinginverter.png",
+        "searchword": "Which inverter welder brand is the best?",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2 font-semibold'>MEGMEET Ehave CM 500H/500/400/350/250 Inverter Welder</h1>"
+      },
+    "product2": {
+        "id": 2,
+        "name": "Affordable Welding Machine",
+        "description": "Rilon ARC200CT Electric Welding Machine, 170 Amps, 220 Volts. It is a MOSFET INVERTER welding machine that produces stable and smooth welds. It can be used with household electricity and includes a feature to improve the melting of the welding rod. The machine can weld rods of 3.2mm and operate continuously. Convenient to use.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "2_ARC200CT.png",
+        "searchword": "Affordable Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'> Rilon ARC200CT MMA Welding Machine </h1> <p class='py-2'>Rilon ARC200CT Electric Welding Machine, 170 Amps, 220 Volts. It is a MOSFET INVERTER welding machine that produces stable and smooth welds. It can be used with household electricity and includes a feature to improve the melting of the welding rod. The machine can weld rods of 3.2mm and operate continuously. Convenient to use.</p> <p class='py-2 font-semibold'>Rilon ARC200CT</p> <p class='py-2'>MMA Welding Machine (220V 1PHASE MOSFET)</p> <p class='py-2'>Input Current (A): AC 220 V ±15%/50-60Hz</p> <p class='py-2'>Welding Current (A/V): 30-170A/26.8V</p> <p class='py-2'>Efficiency (25°C): 60%170A/100%140A</p> <p class='py-2'>Size (LxWxH.mm): 402*160*300</p> <p class='py-2'>Weight (Kg): 5.8</p> <p class='py-2'>Welding Rod Size (mm): 2.6-3.2</p> <p class='py-2 font-semibold'>Complete Set of Accessories</p> <ol class='list-decimal pl-10'> <li>Welding Cable, 3 meters</li> <li>Ground Cable, 3 meters</li> <li>Basic Welding Helmet with Automatic Light Filter</li> <li>Leather Welding Gloves, 14 inches (1 pair)</li> </ol> <p class='py-3 mb-2'>1-Year Warranty</p>"
+    },
+    "product3": {
+        "id": 3,
+        "name": "Portable Welding Machine",
+        "description": "Rilon ARC200T Portable Electric Welding Machine, 200 Amps, 220 Volts. It is a MOSFET INVERTER welding machine that provides stable and smooth welding performance. It can be used with household electricity and features a system that enhances the melting of the welding rod. The machine can weld rods of 3.2mm and operates continuously. Easy to use.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "3_ARC200T.png",
+        "searchword": "Portable Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'> Rilon ARC200T MMA Welding Machine </h1> <p class='py-2'>Rilon ARC200T Portable Electric Welding Machine, 200 Amps, 220 Volts. It is a MOSFET INVERTER welding machine that provides stable and smooth welding performance. It can be used with household electricity and features a system that enhances the melting of the welding rod. The machine can weld rods of 3.2mm and operates continuously. Easy to use.</p> <p class='py-2 font-semibold'>Rilon ARC200T</p> <p class='py-2'>MMA Welding Machine (220V 1PHASE MOSFET)</p> <p class='py-2'>Input Current (A): AC 220 V ±15%/50-60Hz</p> <p class='py-2'>Welding Current (A/V): 30-200A/28V</p> <p class='py-2'>Efficiency (25°C): 60%200A/100%150A</p> <p class='py-2'>Size (LxWxH.mm): 402*160*300</p> <p class='py-2'>Weight (Kg): 5.8</p> <p class='py-2'>Welding Rod Size (mm): 2.6-3.2</p> <p class='py-2 font-semibold'>Complete Set of Accessories</p> <ol class='list-decimal pl-10'> <li>Welding Cable, 3 meters</li> <li>Ground Cable, 3 meters</li> <li>Basic Welding Helmet with Automatic Light Filter</li> <li>Leather Welding Gloves, 14 inches (1 pair)</li> </ol> <p class='py-2 mb-2'>1-Year Warranty</p>"
+    },
+    "product4": {
+        "id": 4,
+        "name": "Affordable TIG Welding Machine",
+        "description": "Rilon TIG300A (Down-Slope) Argon Welding Machine, 300 Amps, 220 Volts. This is a dual system welding machine that can weld with both TIG and MMA processes. It is ideal for welding stainless steel. The machine offers functions such as 2T/4T Auto, Down-Slope, Post Flow, and Pulse Frequency adjustment. The welding current is stable, and it features improved melting performance for better welding results.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "4_TIG300A.png",
+        "searchword": "Affordable TIG Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'> Rilon TIG300A (Down-Slope) Argon Welding Machine </h1> <p class='py-2'>Rilon TIG300A (Down-Slope) is a dual system argon welding machine, offering 300 Amps with 220 Volts. It is ideal for welding stainless steel and provides functions like 2T/4T Auto, Down-Slope, Post Flow, Pulse Frequency adjustment. It delivers stable welding current, enhancing the melting performance for continuous welding.</p> <p class='py-2 font-semibold'>Rilon TIG300A (Down-Slope)</p> <p class='py-2'>Argon Welding Machine (220V 1PHASE MOSFET) (TIG / MMA)</p> <p class='py-2'>Input Current (A): AC 220 V ±15%/50-60Hz</p> <p class='py-2'>Welding Current (A/V): TIG 10-250A/20V / ARC 10-210A/28.4V</p> <p class='py-2'>Efficiency (25°C): TIG 60%250A/100%180A / ARC 60%210A/100%150A</p> <p class='py-2'>Size (LxWxH.mm): 505*203*375</p> <p class='py-2'>Weight (Kg): 18</p> <p class='py-2'>Welding Rod Size (mm): 2.6-3.2</p> <p class='py-2 font-semibold'>Complete Set of Accessories</p> <ol class='list-decimal pl-10'> <li>WP26 Argon Cable, 5 meters</li> <li>Welding Cable, 3 meters</li> <li>Ground Cable, 3 meters</li> <li>Welding Helmet with Automatic Light Filter</li> <li>High-Quality Gas Regulator</li> <li>Gas Hose, 3 meters with Locking Ring</li> <li>Electrode Holders and Collect Body #1.6, #2.4</li> <li>Ceramic Cups #5, #6, #7, #8</li> <li>Short and Long Tungsten Electrodes #1.6, #2.4</li> </ol> <p class='py-3 mb-2'>1-Year Warranty</p>"
+    },
+    "product5": {
+        "id": 5,
+        "name": "Affordable Argon Welding Machine",
+        "description": "Rilon TIG200P Argon Welding Machine, 200 Amps, 220 Volts. This is a dual-system welding machine suitable for welding stainless steel. The machine features DC TIG and MMA welding with adjustable Down-Slope, Post Flow, Pulse, and AC Balance for enhanced welding performance. The machine delivers stable welding current, ideal for welding various metals like brass, copper, and stainless steel.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "5_TIG200P.png",
+        "searchword": "Affordable Argon Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'> Rilon TIG200P Argon Welding Machine </h1> <p class='py-2'>Rilon TIG200P is a dual-system argon welding machine, offering 200 Amps with 220 Volts. It features DC TIG and MMA welding, adjustable Down-Slope, Post Flow, Pulse, and AC Balance, providing stable and smooth welding performance. This machine is ideal for welding various metals including stainless steel, brass, and copper.</p> <p class='py-2 font-semibold'>Rilon TIG200P</p> <p class='py-2'>Argon Welding Machine (220V 1PHASE MOSFET) (TIG / MMA)</p> <p class='py-2'>Input Current (A): AC 220 V ±15%/50-60Hz</p> <p class='py-2'>Welding Current (A/V): TIG 10-200A/18.5V / ARC 10-180A/28.4V</p> <p class='py-2'>Efficiency (25°C): TIG 60%200A/100%150A / ARC 60%180A/100%120A</p> <p class='py-2'>Size (LxWxH.mm): 365*155*325</p> <p class='py-2'>Weight (Kg): 8.6</p> <p class='py-2'>Welding Rod Size (mm): 2.6-3.2</p> <p class='py-2 font-semibold'>Complete Set of Accessories</p> <ol class='list-decimal pl-10'> <li>WP26 Argon Cable, 4 meters</li> <li>Welding Cable, 3 meters</li> <li>Ground Cable, 3 meters</li> <li>Welding Helmet with Automatic Light Filter</li> <li>High-Quality Gas Regulator</li> <li>Gas Hose, 2 meters</li> <li>Electrode Holders and Collect Body #1.6, #2.4</li> </ol> <p class='py-3 mb-2'>1-Year Warranty</p>"
+    },
+    "product6": {
+        "id": 6,
+        "name": "Aluminum Stainless Welding Machine",
+        "description": "Rilon TIG250P AC/DC aluminum welding machine with TIG and ARC welding modes. It operates on 220V electricity and delivers 250A using the MOSFET system. It is ideal for welding aluminum and provides clean, beautiful weld beads. The machine includes automatic frequency adjustment and an automatic welding bead creation system. It can be used to weld stainless steel, brass, copper, etc. The system offers 2T/4T functionality, Pulse frequency and width, Down-Slope, Post Flow, and AC Balance to ensure stable and consistent welding. It's easy to transport and suitable for continuous welding. It comes with a full set of accessories, including a WP26 argon welding cable (5m), 3m electric welding cable, 3m ground cable, automatic light-adjusting welding helmet, and more.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "6_TIG250P.png",
+        "searchword": "Aluminum Stainless Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'>Rilon TIG250P AC/DC Argon Welding Machine</h1><p class='py-2'>Rilon TIG250P AC/DC argon welding machine with MOSFET system, providing 250A power, operating at 220V. It supports both TIG and ARC welding, ideal for welding aluminum with clean and beautiful welds. It also includes automatic frequency control and an automatic weld bead creation system. Suitable for welding stainless steel, brass, copper, and more. Features 2T/4T operation, pulse frequency and width, down-slope, post-flow, and AC balance for optimal weld quality.</p><p class='py-2 font-semibold'>Rilon TIG250P AC/DC</p><p class='py-2'>Argon welding machine (220V 1Phase MOSFET) for TIG / MMA welding.</p><p class='py-2'>Power input: AC 220V ±15% / 50-60Hz</p><p class='py-2'>Welding current (A/V): TIG 10-250A / 20V / ARC 10-200A / 28V</p><p class='py-2'>Efficiency at 25°C: TIG 60% 250A / 100% 194A / ARC 60% 200A / 100% 155A</p><p class='py-2'>Dimensions (LxWxH): 476*340*402 mm</p><p class='py-2'>Weight: 20kg</p><p class='py-2'>Welding wire diameter (mm): 2.6-3.2</p><p class='py-2 font-semibold'>Complete set of accessories:</p><ol class='list-decimal pl-10'><li>5m WP26 Argon welding cable</li><li>3m electric welding cable</li><li>3m ground cable</li><li>Automatic light-adjusting welding helmet</li><li>High-quality small gas pressure gauge</li><li>3m gas hose with locking ring</li><li>Collet and collet body #1.6, #2.4</li><li>Ceramic #5, #6, #7, #8</li><li>Short and long tail tungsten electrodes (#1.6, #2.4)</li><li>5kg aluminum welding wire</li></ol><p class='py-3 mb-2'>1-year warranty</p>"
+    },
+    "product7": {
+        "id": 7,
+        "name": "MIG Welding Machine",
+        "description": "Rilon MIG300GS MIG welding machine with Advance IGBT system, providing 300A power, suitable for CO2 welding and electric welding. It operates on 380V or 220V electricity and offers smooth and stable arc with minimal spatter, ideal for continuous welding. The machine includes a wire feeder system and is equipped with wheels for easy transportation. It comes with a full set of accessories, including a MIG CO2 cable, grounding cable, automatic light-adjusting welding helmet, and more.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "7_MIG300GS.png",
+        "searchword": "MIG Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'>Rilon MIG300GS CO2 MIG Welding Machine</h1><p class='py-2'>Rilon MIG300GS MIG welding machine with an Advanced IGBT system providing 300A power, suitable for both CO2 welding and electric welding. It operates on 380V or 220V and delivers a stable arc for continuous welding. The machine features minimal spatter and is equipped with a wire feeder system and wheels for easy mobility.</p><p class='py-2 font-semibold'>Rilon MIG300GS</p><p class='py-2'>CO2 Welding machine (220V 1PHASE / 380V 3PHASE) Advance IGBT with 2-in-1 MIG / MMA feeding system.</p><p class='py-2'>Power input: AC 220V ±15% / 50-60Hz / AC 380V ±15% / 50-60Hz</p><p class='py-2'>Welding current (A/V): MIG 50-300A / 29V / ARC 70-300A / 32V</p><p class='py-2'>Welding current at 220V (A/V): MIG 40-250A / 26.5V / ARC 65-250A / 30V</p><p class='py-2'>Efficiency at 25°C: MIG/ARC 60% 300A / 100% 250A</p><p class='py-2'>Dimensions (LxWxH): 900*458*960 mm</p><p class='py-2'>Weight: 60kg</p><p class='py-2'>Welding wire diameter (mm): 0.8-1.0-1.2</p><p class='py-2'>Wire feed: Internal machine system</p><p class='py-2 font-semibold'>Complete set of accessories:</p><ol class='list-decimal pl-10'><li>3m MIG CO2 PANA200 cable with Euro connector</li><li>3m ground cable</li><li>Automatic light-adjusting welding helmet</li><li>14-inch long leather welding gloves (1 pair)</li><li>High-quality small gas pressure gauge</li><li>3m air hose with locking ring</li><li>Nozzle</li><li>5 high-quality contact tips</li><li>Multipurpose pliers for MIG welding head</li><li>Welding splash protection fluid (1 can)</li></ol><p class='py-3 mb-2'>1-year warranty</p>"
+    },
+    "product8": {
+        "id": 8,
+        "name": "Cheap CO2 Welding Machine",
+        "description": "Rilon MIG200CT is a budget-friendly CO2 welding machine with a MOSFET system, providing 180A power. It operates on 220V electricity and is suitable for both CO2 and electric welding. This machine offers stable and smooth arc performance, ideal for continuous welding. It's compact and portable with an internal wire feed system and can handle up to 5kg of wire.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "8_MIG200CT.png",
+        "searchword": "Cheap CO2 Welding Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'>Rilon MIG200CT CO2 MIG Welding Machine</h1><p class='py-2'>Rilon MIG200CT is a budget-friendly CO2 welding machine with a MOSFET system, providing 180A power and capable of CO2 and electric welding. It operates at 220V and offers stable, smooth welding with good arc control for continuous use. It is compact and portable, with an internal wire feed system and can handle up to 5kg of wire.</p><p class='py-2 font-semibold'>Rilon MIG200CT</p><p class='py-2'>CO2 welding machine (220V 1PHASE) MOSFET (2-in-1 MIG / MMA feed system)</p><p class='py-2'>Power input: AC 220V ±15% / 50-60Hz</p><p class='py-2'>Welding current (A/V): MIG 40-200A / 24V / ARC 20-160A / 56.4V</p><p class='py-2'>Efficiency at 25°C: MIG 60% 200A / 100% 150A / ARC 60% 160A / 100% 115A</p><p class='py-2'>Dimensions (LxWxH): 467*203*476 mm</p><p class='py-2'>Weight: 14kg</p><p class='py-2'>Welding wire diameter (mm): 0.6-0.8-1.0</p><p class='py-2'>Wire feed: Internal machine system</p><p class='py-2 font-semibold'>Complete set of accessories:</p><ol class='list-decimal pl-10'><li>3m MIG CO2 PANA200 cable with Euro connector</li><li>3m ground cable</li><li>Automatic light-adjusting welding helmet</li><li>14-inch long leather welding gloves (1 pair)</li><li>High-quality small gas pressure gauge</li><li>3m air hose with locking ring</li><li>Nozzle</li><li>5 high-quality contact tips</li><li>Multipurpose pliers for MIG welding head</li><li>Welding splash protection fluid (1 can)</li></ol><p class='py-3 mb-2'>1-year warranty</p>"
+    },
+    "product9": {
+        "id": 9,
+        "name": "Best CO2 Welding Machine Brand",
+        "description": "Best CO2 Welding Machine Brand, Rilon MIG271GF CO2 MIG Welder, Advanced IGBT System, 250Amp, 220V AC. Dual welding systems: CO2 and MMA (electric welding). Low spatter, perfect for creating smooth weld beads. Stable current for continuous welding. Compact and portable with a 15kg wire feed system. 220V 1PHASE input, MIG 50-250A, ARC 50-220A welding range. Durable and lightweight. Comes with a full set of accessories: PANA200 MIG welding torch, 3m ground cable, auto-darkening welding helmet, gloves, gas pressure gauge, 3m air hose, 5 contact tips, multi-purpose pliers, and anti-spatter spray. 1-year warranty.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "9_MIG271GF.png",
+        "searchword": "Best CO2 Welding Machine Brand",
+        "brand": "Worachart Group",
+        "html": "<h1 class='text-[20px] py-2'> Rilon MIG271GF CO2 MIG Welder </h1> <p class='py-2'>Rilon MIG271GF, Advanced IGBT CO2 Welding Machine, 250Amp, 220V AC. Dual system for CO2 and electric welding (MMA). Low spatter for smooth weld seams. Stable current for continuous welding. Compact and portable. Comes with a full set of accessories including a PANA200 MIG torch, 3m ground cable, auto-darkening welding helmet, gloves, gas pressure gauge, 3m air hose, 5 contact tips, multi-purpose pliers, and anti-spatter spray. 1-year warranty.</p>"
+    },
+    "product10": {
+        "id": 10,
+        "name": "Cheap Plasma Cutting Machine",
+        "description": "Cheap Plasma Cutting Machine, Rilon CUT60 PILOT ARC, MOSFET INVERTER, 220V AC. Suitable for cutting material thickness from 1.0 to 20mm, with a clean cut up to 14mm. Stable power supply for home use. Includes a full set of accessories: 5m P80 plasma cutting torch, 3m ground cable, auto-darkening welding mask, gloves, pressure gauge, 3m air hose, 10 tips and electrodes. 1-year warranty.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "10_CUT60.png",
+        "searchword": "Cheap Plasma Cutting Machine",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2'> Rilon CUT60 PILOT ARC Plasma Cutter </h1> <p class='py-2'>The Rilon CUT60 PILOT ARC Plasma Cutter with MOSFET INVERTER, 220V AC, is suitable for cutting materials from 1.0 to 20mm thick. For clean cuts up to 14mm. Ideal for home and professional use. Comes with a full set of accessories including a 5m plasma cutting torch, 3m ground cable, auto-darkening helmet, gloves, pressure gauge, 3m air hose, 10 tips and electrodes. 1-year warranty.</p>"
+    },
+    "product11": {
+        "id": 11,
+        "name": "Welding Equipment",
+        "description": "Worachat Group is a distributor of RILON welding machines, including MIG, CO2, TIG, and Plasma machines. We provide high-quality welding machines, parts, and accessories for construction and industrial applications. Full support and spare parts available.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "11_parts.png",
+        "searchword": "Welding Equipment",
+        "brand": "Rilon",
+        "html": "Worachat Group is a distributor of RILON welding machines including MIG, CO2, TIG, and Plasma welding equipment. We offer machines for both industrial and construction uses, along with full after-sales service and parts supply."
+    },
+    "product12": {
+        "id": 12,
+        "name": "Welding Machine Spare Parts",
+        "description": "Authorized distributor for Argon welding machines with TIG and MMA functionality. Compact and portable, adjustable voltage, and includes a 5m Argon welding cable. 1-year warranty with full after-sales service and availability of spare parts.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "12_parts.png",
+        "searchword": "Welding Machine Spare Parts",
+        "brand": "Rilon",
+        "html": "<p class='py-2'>Authorized distributor for Argon welding machines with TIG and MMA functionality. Compact, portable, and adjustable voltage. Includes a 5m Argon welding cable. 1-year warranty, after-sales service, and all necessary spare parts available.</p>"
+    },
+    "product13": {
+        "id": 13,
+        "name": "Welding Machine Cable",
+        "description": "MEGMEET Artsen P(C)M500/400F/N/A II welding machine cables. Designed for high-performance use in various welding applications. Supports different welding processes including MIG/MAG/CO2, DC, and Pulse. Includes advanced cooling system options.",
+        "category": [
+            "Metal Welding"
+        ],
+        "image": "13_PANA350.png",
+        "searchword": "Welding Machine Cable",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2 font-semibold'> MEGMEET Artsen P(C)M500/400F/N/A II </h1> <ul class='pl-10 mb-4 list-disc'> <li>Full digital control system</li> <li>Supports high-efficiency wire feeding and cooling systems</li> <li>Multiple welding processes supported: MIG/MAG/CO2, DC, Pulse</li> <li>Suitable for various material types including CS, SS, Al</li> <li>Cooling system options available</li> <li>1-year warranty</li> </ul>"
+    },
+    "product14": {
+        "id": 14,
+        "name": "Cheap Argon Welding Wire",
+        "description": "Affordable Argon welding wire for various welding processes. Supports digital control for better efficiency and ease of use. Compatible with multiple welding setups and ideal for industrial use.",
+        "category": [
+            "Metal Welding",
+            "Welding Equipment",
+            "Metal Sealing Welding"
+        ],
+        "image": "14_WP18.png",
+        "searchword": "Cheap Argon Welding Wire",
+        "brand": "Rilon",
+        "html": "<h1 class='text-[20px] py-2 font-semibold'> Artsen Cm 500C Inverter Welding Machine </h1> <ul class='pl-10 mb-4 list-disc'> <li>Fully digital control system</li> <li>High-speed operation for better performance</li> <li>Stores up to 50 user-defined welding patterns</li> <li>Pulse welding for precise and beautiful welds</li> <li>Supports multiple welding materials including CS, SS, and Al</li> <li>Full functionality and advanced programming for industrial applications</li> </ul>"
+    }
+}

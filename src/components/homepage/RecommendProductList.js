@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import RecommendProductCard from './RecommendProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { useTranslation } from 'react-i18next';
 import 'swiper/css'; // Core Swiper styles
 import 'swiper/css/navigation'; // Navigation styles (if needed)
 import 'swiper/css/pagination'; // Pagination styles (if needed)
@@ -9,6 +9,7 @@ import 'swiper/css/pagination'; // Pagination styles (if needed)
 function RecommendProductList() {
   const [recommendProductData, setRecommendProductData] = useState([]);
   const swiperRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch('recommendproduct.json')
@@ -22,7 +23,7 @@ function RecommendProductList() {
     <div className="pb-10">
       <div>
         <h1 className="pt-2 text-[30px] text-center">
-          สินค้าขายดี
+          {t('homepage.p27')}
         </h1>
         <div className="text-[#E2B22C] h-[3px] w-[60px] text-center mx-[auto] bg-[#E2B22C]" />
       </div>

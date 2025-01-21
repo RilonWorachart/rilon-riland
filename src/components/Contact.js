@@ -2,16 +2,18 @@ import React from 'react'
 import { FaFacebookF, FaGlobe, FaInstagram, FaLine, FaPhoneAlt, FaYoutube, FaBuilding, FaFax, FaMapMarkerAlt, FaShareAlt } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 import { MdMail } from "react-icons/md";
-
+import { useTranslation } from 'react-i18next';
 
 
 function Contact() {
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="">
                 <div className="py-3 flex flex-wrap">
                     <FaBuilding className="mt-[2px] mr-4" />
-                    <p>110/61,91/1 ตำบลไทรม้า อำเภอเมืองนนทบุรี นนทบุรี 11000</p>
+                    <p>{t('contact.p1')}</p>
                 </div>
                 <div className="py-3 flex flex-wrap">
                     <FaPhoneAlt className="mt-[2px] mr-4" />
@@ -44,7 +46,7 @@ function Contact() {
                 </div>
                 <div className="py-3 flex flex-wrap">
                     <FaClock className="mt-[2px] mr-4" />
-                    <p>จันทร์ - เสาร์ เวลา 08:00 - 17:30 น. สั่งของได้ตลอด 24 ชั่วโมง</p>
+                    <p>{t('contact.p2')}</p>
                 </div>
                 <div className="py-3 flex flex-wrap">
                     <FaMapMarkerAlt className="mt-[2px] mr-4" />

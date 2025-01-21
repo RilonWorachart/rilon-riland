@@ -1,8 +1,10 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 function SearchKeyButton() {
+    const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (e) => {
@@ -22,7 +24,7 @@ function SearchKeyButton() {
             <form className="flex items-center border-[1px] border-lightgray py-1 px-3 mx-[80px] mt-[30px] rounded-full text-[#6C757D]" onSubmit={handleSearch}>
                 <input
                     type="text"
-                    placeholder="ค้นหา"
+                    placeholder={t('categorypage.p4')}
                     className="flex-grow p-1 border-none outline-none rounded-l-full"
                     onChange={handleInputChange}
                     value={searchTerm}

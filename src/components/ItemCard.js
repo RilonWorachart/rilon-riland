@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTags } from "react-icons/fa";
+import { useTranslation } from 'react-i18next'
 
 function ItemCard({ id, image, name, description, searchword, brand, itemType }) {
+  const { t } = useTranslation();
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -62,7 +64,7 @@ function ItemCard({ id, image, name, description, searchword, brand, itemType })
             </Link>
             <Link to={`/catalog/item/${id}`}>
               <button className="overflow-hidden truncate bg-[#E2B22C] border text-white py-1 px-4 rounded-full hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300">
-                ดูรายละเอียด
+                {t('itemcard.p1')}
               </button>
             </Link>
           </div>

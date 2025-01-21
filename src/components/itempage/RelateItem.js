@@ -3,29 +3,31 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemCard from '../ItemCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 
 function RelateItem() {
   const { id } = useParams();
   const [productData, setProductData] = useState([])
   const swiperRef = useRef(null);
+  const { t } = useTranslation();
 
 
   useEffect(() => {
-    // Fetch all products
-    fetch('/allproduct.json')
+    fetch(`/locales/${i18next.language}/products.json`)
       .then((response) => response.json())
       .then((result) => {
-        // Filter out the product with the matching id
-        const filteredProducts = result.filter(item => item.id !== parseInt(id));
+        // Convert the object into an array of products
+        const productsArray = Object.values(result);
+        const filteredProducts = productsArray.filter(item => item.id !== parseInt(id));
+
         setProductData(filteredProducts);
-        // console.log(filteredProducts);  // Logs all products except the one with the matching id
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching product data:', error);
       });
-  }, [id]);  // Re-fetch data whenever `id` changes
+  }, [id, t]); // Empty dependency array means this runs once when the component mounts
 
 
   return (
@@ -33,7 +35,7 @@ function RelateItem() {
       <div className="px-[100px]">
         <div className="pb-8">
           <h1 className="pt-2 text-[30px] text-center">
-            สินค้าที่เกี่ยวข้อง
+            {t('itempage.p11')}
           </h1>
           <div className="text-[#E2B22C] h-[3px] w-[60px] text-center mx-[auto] bg-[#E2B22C]" />
         </div>

@@ -1,17 +1,24 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import { FaSortDown } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import { useScroll } from './ScrollContext.js';
+import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 
-
-function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLang, setSelectedPic }) {
+function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic, setSelectedLang, setSelectedPic }) {
     const { navigateAndScroll } = useScroll();
+    const { t, i18n } = useTranslation();
 
-    const handleSelectSidebar = (lang, pic) => {
-        setSelectedLang(lang);
+    const handleChangeLanguage = (language) => {
+        i18next.changeLanguage(language);
+    };
+
+    const handleSelectSidebar = (fulllang, pic, lang) => {
+        setSelectedLang(fulllang);
         setSelectedPic(pic)
         setIsActiveLangSidebar(false)
+        handleChangeLanguage(lang)
     }
 
     const handleSidebar = (num) => {
@@ -21,6 +28,7 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
 
 
     const [isActiveLangSidebar, setIsActiveLangSidebar] = useState(false)
+
 
     return (
         <>
@@ -40,7 +48,7 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                                 setIsActiveSidebar(false)
                             }}
                         >
-                            <button>หน้าแรก</button>
+                            <button>{t('header.homepage')}</button>
                         </div>
                     </Link>
                     <div
@@ -49,7 +57,7 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                             handleSidebar(0)
                         }}
                     >
-                        <button>เกี่ยวกับเรา</button>
+                        <button>{t('header.aboutme')}</button>
                     </div>
                     <div
                         className="hover:text-[#00007E]"
@@ -57,7 +65,7 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                             handleSidebar(1)
                         }}
                     >
-                        <button>แคตตาล็อก</button>
+                        <button>{t('header.catelog')}</button>
                     </div>
                     <div
                         className="hover:text-[#00007E]"
@@ -65,7 +73,7 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                             handleSidebar(2)
                         }}
                     >
-                        <button>สินค้าขายดี</button>
+                        <button>{t('header.recommend')}</button>
                     </div>
                     <div
                         className="hover:text-[#00007E]"
@@ -73,7 +81,7 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                             handleSidebar(3)
                         }}
                     >
-                        <button>ติดต่อเรา</button>
+                        <button>{t('header.contactus')}</button>
                     </div>
 
 
@@ -91,11 +99,11 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                             {
                                 isActiveLangSidebar && (
                                     <div className="absolute top-0 mt-0 z-50">
-                                        <div className="mt-10 w-[160px] bg-white text-[#E2B22C] shadow-2xl h-[400px] overflow-scroll">
+                                        <div className="mt-10 w-[160px] bg-white text-[#E2B22C] shadow-2xl">
                                             <div
                                                 className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
                                                 onClick={() =>
-                                                    handleSelectSidebar('ไทย', 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg')
+                                                    handleSelectSidebar('Thai', 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg','th')
                                                 }
                                             >
                                                 <img
@@ -103,118 +111,20 @@ function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic,  setSelectedLa
                                                     alt="THA Flag"
                                                     className="w-6 h-4 mr-1.5"
                                                 />
-                                                ไทย
+                                                {t('header.langth')}
                                             </div>
 
+                                           
                                             <div
                                                 className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('จีน (ตัวเต็ม)', "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/800px-Flag_of_the_People%27s_Republic_of_China.svg.png")}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/800px-Flag_of_the_People%27s_Republic_of_China.svg.png"
-                                                    alt="China Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                จีน (ตัวเต็ม)
-                                            </div>
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('จีน (ตัวย่อ)', "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/800px-Flag_of_the_People%27s_Republic_of_China.svg.png")}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/800px-Flag_of_the_People%27s_Republic_of_China.svg.png"
-                                                    alt="China Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                จีน (ตัวย่อ)
-                                            </div>
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('ญี่ปุ่น', 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg')}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg"
-                                                    alt="Japan Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                ญี่ปุ่น
-                                            </div>
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('มาเลย์', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/800px-Flag_of_Malaysia.svg.png')}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/800px-Flag_of_Malaysia.svg.png"
-                                                    alt="Malaysia Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                มาเลย์
-                                            </div>
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('เมียนม่า (พม่า)', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/800px-Flag_of_Myanmar.svg.png')}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/800px-Flag_of_Myanmar.svg.png"
-                                                    alt="Myanmar Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                เมียนม่า (พม่า)
-                                            </div>
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('ลาว', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/800px-Flag_of_Laos.svg.png')}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/800px-Flag_of_Laos.svg.png"
-                                                    alt="Laos Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                ลาว
-                                            </div>
-
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('เวียดนาม', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/800px-Flag_of_Vietnam.svg.png')}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/800px-Flag_of_Vietnam.svg.png"
-                                                    alt="Vietnam Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                เวียดนาม
-                                            </div>
-
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('อังกฤษ', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png')}
+                                                onClick={() => handleSelectSidebar('English', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png','en')}
                                             >
                                                 <img
                                                     src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png"
                                                     alt="UK Flag"
                                                     className="w-6 h-4 mr-1.5"
                                                 />
-                                                อังกฤษ
-                                            </div>
-
-
-                                            <div
-                                                className="flex items-center p-2 cursor-pointer hover:text-[#00007E]"
-                                                onClick={() => handleSelectSidebar('อินโดนีเซีย', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/800px-Flag_of_Indonesia.svg.png')}
-                                            >
-                                                <img
-                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/800px-Flag_of_Indonesia.svg.png"
-                                                    alt="Indonesia Flag"
-                                                    className="w-6 h-4 mr-1.5"
-                                                />
-                                                อินโดนีเซีย
+                                                {t('header.langeng')}
                                             </div>
                                         </div>
 
