@@ -11,13 +11,13 @@ function QRcodeComponent() {
         {t('qrcode.p1')}
       </p>
       <div className="flex justify-center items-center py-8">
-        <img src='/images/page_images/QRcode.png' className="w-[150px]"></img>
+        <img src='/images/page_images/QRcode.png' className="w-[150px]" alt="qrcode"></img>
       </div>
       <p className="font-bold text-[18px]">
         {t('qrcode.p2')}
       </p>
       <a href="https://page.line.me/156vctty?openQrModal=true" className="flex justify-center items-center py-4">
-        <img src='/images/page_images/Addline.png' className="w-[200px]"></img>
+        <img src='/images/page_images/Addline.png' className="w-[200px]" alt="addline"></img>
       </a>
     </div>
   )

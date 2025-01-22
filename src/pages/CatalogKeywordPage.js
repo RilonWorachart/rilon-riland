@@ -14,12 +14,11 @@ function CatalogKeywordPage() {
   const { key } = useParams();
   const [productData, setProductData] = useState([])
   const [itemType, setItemType] = useState("type1")
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
 
   useEffect(() => {
     // Every time the language changes, re-translate the key into the new language
-    const translatedKey = t(key)
 
     fetch(`/locales/${i18next.language}/products.json`)  // Fetch products based on current language
       .then((response) => response.json())
@@ -28,22 +27,22 @@ function CatalogKeywordPage() {
         const productsArray = Object.values(result);
 
         // If translatedKey exists, filter products based on the translated key
-        const foundProducts = translatedKey
+        const foundProducts = key
           ? productsArray.filter(item =>
             // Match `translatedKey` with searchword, brand, or categories (case-insensitive)
-            item.searchword.toLowerCase().includes(translatedKey.toLowerCase()) ||
-            item.brand.toLowerCase().includes(translatedKey.toLowerCase()) ||
-            item.category.some(category =>
-              category.toLowerCase().includes(translatedKey.toLowerCase())
+            item.searchword_filter.toLowerCase().includes(key.toLowerCase()) ||
+            item.brand_filter.toLowerCase().includes(key.toLowerCase()) ||
+            item.category_filter.some(category =>
+              category.toLowerCase().includes(key.toLowerCase())
             )
           )
           : productsArray;  // If no key, return all products
 
         setProductData(foundProducts);  // Update state with filtered products
-        console.log("Translated Key:", translatedKey);  // Log the translated key for debugging
+        console.log("Translated Key:", key);  // Log the translated key for debugging
       })
       .catch((error) => console.error('Error fetching data:', error));  // Handle errors
-  }, [key, i18next.language, t]);  // Dependency on `key`, language change (`i18next.language`), and `t`
+  }, [key, t]);  // Dependency on `key`, language change (`i18next.language`), and `t`
 
 
   return (

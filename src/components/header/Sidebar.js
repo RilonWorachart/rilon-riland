@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 function Sidebar({ setIsActiveSidebar, selectedLang, selectedPic, setSelectedLang, setSelectedPic }) {
     const { navigateAndScroll } = useScroll();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const handleChangeLanguage = (language) => {
         i18next.changeLanguage(language);

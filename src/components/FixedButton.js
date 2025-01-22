@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { IoIosArrowUp } from "react-icons/io";
-import { FaShareAltSquare, FaRegAddressCard, FaFacebookSquare,FaYoutube, FaLine, FaPhoneAlt, FaInstagram } from "react-icons/fa";
+import { FaShareAltSquare, FaRegAddressCard, FaFacebookSquare,FaYoutube, FaLine, FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 function FixedButton() {
@@ -61,11 +61,11 @@ function FixedButton() {
                 >
                     <MdOutlineEmail className="" />
                 </a>
-                <a href=""
+                {/* <a href=""
                     className={`fixed left-[20px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-full shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isContactActive ? 'bottom-[265px]' : 'bottom-[65px]'}`}
                 >
                     <FaPhoneAlt className="" />
-                </a>
+                </a> */}
             </div>
 
             <div>

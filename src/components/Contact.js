@@ -18,16 +18,16 @@ function Contact() {
                 <div className="py-3 flex flex-wrap">
                     <FaPhoneAlt className="mt-[2px] mr-4" />
                     <p>
-                        <a href="" className="text-[#E2B22C] hover:text-[#00007E]">08-1694-5000</a>,
-                        <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> 08-1697-7000</a>,
-                        <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> 09-5961-9901</a>
+                        <span className="text-[#E2B22C] hover:text-[#00007E]">08-1694-5000</span>,
+                        <span className="text-[#E2B22C] hover:text-[#00007E]"> 08-1697-7000</span>,
+                        <span className="text-[#E2B22C] hover:text-[#00007E]"> 09-5961-9901</span>
                     </p>
                 </div>
                 <div className="py-3 flex flex-wrap">
                     <FaFax className="mt-[2px] mr-4" />
                     <p>
-                        <a href="" className="text-[#E2B22C] hover:text-[#00007E]">0-2922-2832</a>,
-                        <a href="" className="text-[#E2B22C] hover:text-[#00007E]"> 0-2595-8518</a>
+                        <span className="text-[#E2B22C] hover:text-[#00007E]">0-2922-2832</span>,
+                        <span className="text-[#E2B22C] hover:text-[#00007E]"> 0-2595-8518</span>
                     </p>
                 </div>
                 <div className="py-3 flex flex-wrap">
@@ -50,7 +50,7 @@ function Contact() {
                 </div>
                 <div className="py-3 flex flex-wrap">
                     <FaMapMarkerAlt className="mt-[2px] mr-4" />
-                    <a href="" className="text-[#E2B22C] hover:text-[#00007E]">13.872115747061208, 100.46261770286053</a>
+                    <p className="text-[#E2B22C] hover:text-[#00007E]">13.872115747061208, 100.46261770286053</p>
                 </div>
 
                 <div className="py-3 pr-2 flex text-[16px] ">

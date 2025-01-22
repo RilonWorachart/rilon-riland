@@ -11,7 +11,7 @@ function Footer() {
         <>
             <div class="px-2 py-8 bg-[#E2B22C] text-white text-center">
                 <div className="flex justify-center py-[22px]">
-                    <img src='/images/page_images/logo-w.png' className="w-[75px]"></img>
+                    <img src='/images/page_images/logo-w.png' alt="logo" className="w-[75px]"></img>
                 </div>
                 <div className="pb-2">
                     <p className="text-[20px] font-bold">{t('footer.p1')}</p>
@@ -34,25 +34,25 @@ function Footer() {
                 </div>
                 <div className="py-2">
                     <p>{t('footer.p5')}
-                        <a href="" className="hover:text-[#00007E]"> janenyrilon_jingwei@hotmail.com</a>,
-                        <a href="" className="hover:text-[#00007E]"> worachart_soi@hotmail.com</a>,
-                        <a href="" className="hover:text-[#00007E]"> worachartgroup@gmail.com</a>
+                        <a href="mailto:janenyrilon_jingwei@hotmail.com" className="hover:text-[#00007E]"> janenyrilon_jingwei@hotmail.com</a>,
+                        <a href="mailto:worachart_soi@hotmail.com" className="hover:text-[#00007E]"> worachart_soi@hotmail.com</a>,
+                        <a href="mailto:worachartgroup@gmail.com" className="hover:text-[#00007E]"> worachartgroup@gmail.com</a>
                     </p>
                     <p>{t('footer.p6')}
-                        <a href="" className="hover:text-[#00007E]">
+                        <span className="hover:text-[#00007E]">
                             08-1694-5000
-                        </a>,
-                        <a href="" className="hover:text-[#00007E]">
+                        </span>,
+                        <span className="hover:text-[#00007E]">
                             08-1697-7000
-                        </a>,
-                        <a href="" className="hover:text-[#00007E]">
+                        </span>,
+                        <span className="hover:text-[#00007E]">
                             09-5961-9901
-                        </a>
+                        </span>
                     </p>
                 </div>
             </div>
             <div class="bg-white text-center py-2 text-[12px]">
-                <p>© 2568 <a href="" className="text-[#E2B22C] hover:text-[#00007E]">{t('footer.p4')}</a></p>
+                <p>© 2568 <span className="text-[#E2B22C] hover:text-[#00007E]">{t('footer.p4')}</span></p>
                 <p>All rights reserved.</p>
             </div>
         </>

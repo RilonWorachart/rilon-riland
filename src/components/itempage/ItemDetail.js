@@ -84,21 +84,23 @@ function ItemDetail() {
                     <p className="py-2">{t('itempage.p6')}</p>
                     <div className="flex">
                         {
-                            productData?.category?.length > 0 ? (
-                                productData.category.map((data, index) => (
-                                    <Link key={index} to={`/catalog/keyword/${data}`}>
-                                        <button className="bg-[#E2B22C] border text-white text-[13px] py-1 px-4 mr-2 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">
-                                            {data}
-                                        </button>
-                                    </Link>
-                                ))
+                            productData?.category_filter?.length > 0 ? (
+                                productData.category_filter.map((filterData, index) => {                                   
+                                    return (
+                                        <Link key={index} to={`/catalog/keyword/${filterData}`}>
+                                            <button className="bg-[#E2B22C] border text-white text-[13px] py-1 px-4 mr-2 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">
+                                                {productData.category[index]} {/* Display category name */}
+                                            </button>
+                                        </Link>
+                                    );
+                                })
                             ) : (
                                 <p>{t('itempage.p7')}</p>  // Fallback if no categories are available
                             )
                         }
                     </div>
                     <p className="py-2">{t('itempage.p12')}</p>
-                    <Link to={`/catalog/keyword/${productData.searchword}`}>
+                    <Link to={`/catalog/keyword/${productData.searchword_filter}`}>
                         <button className="bg-[#E2B22C] border text-white text-[13px] mb-2 py-1 px-4 mr-4 hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition duration-300 inline-block">{productData.searchword}</button>
                     </Link>
                     <div>
