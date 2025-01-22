@@ -42,8 +42,8 @@ function FixedButton() {
                 </button>
             )}
 
-            <div>
-                <button className={`z-10 fixed bottom-[65px] left-[20px] h-[35px] w-[35px] bg-[#E2B22C] text-xl text-white flex items-center justify-center rounded-full shadow-xl transition duration-300 ${isContactActive ? 'scale-75' : 'hover:scale-110'}`} onClick={() => { handleContactToggle() }}>
+            <div className="">
+                <button className={`z-40 fixed bottom-[65px] left-[20px] h-[35px] w-[35px] bg-[#E2B22C] text-xl text-white flex items-center justify-center rounded-full shadow-xl transition duration-300 ${isContactActive ? 'scale-75' : 'hover:scale-110'}`} onClick={() => { handleContactToggle() }}>
                     <FaRegAddressCard className="" />
                 </button>
                 <a href="https://page.line.me/156vctty?openQrModal=true"
@@ -68,8 +68,8 @@ function FixedButton() {
                 </a> */}
             </div>
 
-            <div>
-                <button className={`z-10 fixed bottom-[15px] left-[20px] h-[35px] w-[35px] bg-[#E2B22C] text-xl text-white flex items-center justify-center rounded-xl shadow-xl transition duration-300 ${isSocialActive ? 'scale-75' : 'hover:scale-110'}`} onClick={() => { handleSocialToggle() }}>
+            <div className="">
+                <button className={`z-40 fixed bottom-[15px] left-[20px] h-[35px] w-[35px] bg-[#E2B22C] text-xl text-white flex items-center justify-center rounded-xl shadow-xl transition duration-300 ${isSocialActive ? 'scale-75' : 'hover:scale-110'}`} onClick={() => { handleSocialToggle() }}>
                     <FaShareAltSquare className="" />
                 </button>
                 <a href="https://page.line.me/156vctty?openQrModal=true"
@@ -93,7 +93,7 @@ function FixedButton() {
                     <FaYoutube className="" />
                 </a>
                 <a href="mailto:janenyrilon_jingwei@hotmail.com"
-                    className={`fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[270px]' : 'left-[20px]'}`}
+                    className={`z-20 fixed bottom-[15px] h-[35px] w-[35px] bg-[#E2B22C] text-white flex items-center justify-center rounded-xl shadow-xl hover:bg-white hover:text-[#42189F] hover:border hover:border-[#42189F] transition-all duration-300 ${isSocialActive ? 'left-[270px]' : 'left-[20px]'}`}
                 >
                     <MdOutlineEmail className="" />
                 </a>
